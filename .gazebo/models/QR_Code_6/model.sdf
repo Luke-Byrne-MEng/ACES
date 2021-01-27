@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="QR_Code_6">
+    <static>true</static>
+    <link name="link">
+      <pose>8.88 5.09 0.555 0 0 0</pose>
+
+      <collision name="collision">
+        <geometry>
+          <mesh>
+	    <uri>model://QR_Code_2/meshes/QR_Code_6.dae</uri>
+	  </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+	    <uri>model://QR_Code_1/meshes/QR_Code_6.dae</uri>
+	  </mesh>
+        </geometry>
+      </visual>
+
+    </link>
+  </model>
+</sdf>
