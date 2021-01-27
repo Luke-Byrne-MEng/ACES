@@ -1,0 +1,8 @@
+prefix=/home/luke/catkin_ws/install
+
+Name: jet_control
+Description: Description of jet_control
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

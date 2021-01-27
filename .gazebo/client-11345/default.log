@@ -1,0 +1,13 @@
+Gazebo multi-robot simulator, version 11.3.0
+Copyright (C) 2012 Open Source Robotics Foundation.
+Released under the Apache 2 License.
+http://gazebosim.org
+
+
+(1611604562 147829596) [Msg] Waiting for master.
+(1611604562 156662966) [Msg] Connected to gazebo master @ http://127.0.0.1:11345
+(1611604562 156830169) [Msg] Publicized address: 192.168.1.239
+(1611604562 176709164) Loaded .ini file from: "/home/luke/.gazebo/gui.ini"
+(1611604567 430469795) No spacenav daemon found. Spacenav functionality is disabled
+(1611604567 759720144) [Wrn] [SystemPaths.cc:459] File or path does not exist [""] [Material.001 Base Color.png]
+(1611604567 759805701) [Err] [Material.cc:91] Unable to find texture[Material.001 Base Color.png] in path[/home/luke/catkin_ws/src/jet_description/meshes]
