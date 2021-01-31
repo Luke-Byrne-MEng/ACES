@@ -1,0 +1,8 @@
+prefix=/home/shabkhezk/ACES/catkin_ws/devel
+
+Name: jet_navigation
+Description: Description of jet_navigation
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
