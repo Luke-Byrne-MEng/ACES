@@ -4,13 +4,13 @@
   <!-- DIFFERENTIAL DRIVE PLUGIN -->
   <gazebo>
     <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
-      <updateRate>20</updateRate>
+      <updateRate>10</updateRate>
       <leftJoint>left_wheel_joint</leftJoint>
       <rightJoint>right_wheel_joint</rightJoint>
-      <wheelSeparation>0.3</wheelSeparation>
+      <wheelSeparation>0.27</wheelSeparation>
       <wheelDiameter>0.15</wheelDiameter>
       <wheelAcceleration>1.0</wheelAcceleration>
-      <wheelTorque>20</wheelTorque>
+      <wheelTorque>10</wheelTorque>
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
@@ -25,6 +25,7 @@
       <publishWheelJointState>false</publishWheelJointState>
       <!-- Set to true to swap right and left wheels, defaults to true -->
       <legacyMode>false</legacyMode>
+      <alwaysOn>true</alwaysOn>
     </plugin>
   </gazebo>
 
@@ -92,7 +93,7 @@
   <gazebo reference="sonar1_link">
     <sensor type="ray" name="Sonar1">
       <pose>0 0 0 0 0 0</pose>
-      <visualize>true</visualize>
+      <visualize>false</visualize>
       <update_rate>50</update_rate>
       <ray>
          <scan>
@@ -124,7 +125,7 @@
   <gazebo reference="sonar2_link">
     <sensor type="ray" name="Sonar2">
       <pose>0 0 0 0 0 0</pose>
-      <visualize>true</visualize>
+      <visualize>false</visualize>
       <update_rate>50</update_rate>
       <ray>
          <scan>
@@ -156,7 +157,7 @@
   <gazebo reference="sonar3_link">
     <sensor type="ray" name="Sonar3">
       <pose>0 0 0 0 0 0</pose>
-      <visualize>true</visualize>
+      <visualize>false</visualize>
       <update_rate>50</update_rate>
       <ray>
          <scan>
@@ -191,16 +192,22 @@
     <sensor type="ray" name="hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
       <visualize>false</visualize>
-      <update_rate>50</update_rate>
-      <ray>
-        <scan>
+      <update_rate>40</update_rate>
+      <ray>       
+        <scan>          
           <horizontal>
-            <samples>750</samples>
+            <samples>1500</samples>
             <resolution>1</resolution>
             <min_angle>-1.308996939</min_angle>
             <max_angle>1.308996939</max_angle>
           </horizontal>
-        </scan>
+          <!--<vertical>
+            <samples>10</samples>
+            <resolution>1</resolution>
+            <min_angle>0</min_angle>
+            <max_angle>0.02617993878</max_angle>
+          </vertical>-->                    
+        </scan>        
         <range>
           <min>0.10</min>
           <max>30.0</max>
