@@ -1,0 +1,10 @@
+might havo to do catkin_make again. 
+
+1- delete the devel & build
+2- do catkin_make in /ACES/catkin_ws
+3- Take out the source in bash file, save, then close.
+4- entre source in bash file again.
+
+
+Run 
+roslaunch multi_robot Office_with_3_robots.launch OR roslaunch multi_robot Office_with_5_robots.launch 

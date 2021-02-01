@@ -151,7 +151,7 @@
     <inertial>
       <origin xyz="0 0 0" rpy="1.570796327 0 1.570796327"/>
       <mass value="0.1" />
-      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
     </inertial>
   </link>
 
@@ -259,6 +259,7 @@
       <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
     </inertial>
   </link>
+   
 
 <!--........................JOINTS........................-->
 
@@ -269,7 +270,7 @@
     <parent link="chassis"/>
     <axis xyz="1 0 0" rpy="0 0 0"/>
     <limit effort="100" velocity="100"/>
-    <joint_properties damping="1.0" friction="1.0"/>
+    <joint_properties damping="3.0" friction="0.0"/>
   </joint>
 
 
@@ -280,7 +281,7 @@
     <parent link="chassis"/>
     <axis xyz="1 0 0" rpy="0 0 0"/>
     <limit effort="100" velocity="100"/>
-    <joint_properties damping="1.0" friction="1.0"/>
+    <joint_properties damping="3.0" friction="0.0"/>
   </joint>
 
 

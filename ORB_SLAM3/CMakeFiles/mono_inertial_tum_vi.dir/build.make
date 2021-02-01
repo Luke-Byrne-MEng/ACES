@@ -128,7 +128,7 @@ Examples/Monocular-Inertial/mono_inertial_tum_vi: /usr/lib/x86_64-linux-gnu/libo
 Examples/Monocular-Inertial/mono_inertial_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_photo.so.4.2.0
 Examples/Monocular-Inertial/mono_inertial_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.4.2.0
 Examples/Monocular-Inertial/mono_inertial_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0
-Examples/Monocular-Inertial/mono_inertial_tum_vi: /home/luke/Pangolin/build/src/libpangolin.so
+Examples/Monocular-Inertial/mono_inertial_tum_vi: Pangolin/build/src/libpangolin.so
 Examples/Monocular-Inertial/mono_inertial_tum_vi: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 Examples/Monocular-Inertial/mono_inertial_tum_vi: /usr/lib/x86_64-linux-gnu/libGLX.so
 Examples/Monocular-Inertial/mono_inertial_tum_vi: /usr/lib/x86_64-linux-gnu/libGLU.so

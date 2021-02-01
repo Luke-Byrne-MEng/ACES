@@ -18,8 +18,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "."
   "include"
   "include/CameraModels"
-  "/home/luke/Pangolin/include"
-  "/home/luke/Pangolin/build/src/include"
+  "Pangolin/include"
+  "Pangolin/build/src/include"
   "/usr/include/eigen3"
   "/usr/include/opencv4"
   )

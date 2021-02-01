@@ -128,7 +128,7 @@ Examples/Stereo-Inertial/stereo_inertial_euroc: /usr/lib/x86_64-linux-gnu/libope
 Examples/Stereo-Inertial/stereo_inertial_euroc: /usr/lib/x86_64-linux-gnu/libopencv_photo.so.4.2.0
 Examples/Stereo-Inertial/stereo_inertial_euroc: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.4.2.0
 Examples/Stereo-Inertial/stereo_inertial_euroc: /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0
-Examples/Stereo-Inertial/stereo_inertial_euroc: /home/luke/Pangolin/build/src/libpangolin.so
+Examples/Stereo-Inertial/stereo_inertial_euroc: Pangolin/build/src/libpangolin.so
 Examples/Stereo-Inertial/stereo_inertial_euroc: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 Examples/Stereo-Inertial/stereo_inertial_euroc: /usr/lib/x86_64-linux-gnu/libGLX.so
 Examples/Stereo-Inertial/stereo_inertial_euroc: /usr/lib/x86_64-linux-gnu/libGLU.so

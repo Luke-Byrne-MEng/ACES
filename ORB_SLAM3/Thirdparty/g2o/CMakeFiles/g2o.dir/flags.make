@@ -7,11 +7,11 @@ C_FLAGS =   -Wall   -O3  -Wall -W -O3 -DNDEBUG -march=native -O3 -march=native -
 
 C_DEFINES = -DCOMPILEDWITHC11 -DUNIX -Dg2o_EXPORTS
 
-C_INCLUDES = -I/home/luke/ORB_SLAM3 -I/home/luke/ORB_SLAM3/include -I/home/luke/ORB_SLAM3/include/CameraModels -I/home/luke/Pangolin/include -I/home/luke/Pangolin/build/src/include -I/usr/include/eigen3 -I/home/luke/ORB_SLAM3/Thirdparty/g2o/core -I/home/luke/ORB_SLAM3/Thirdparty/g2o/types -I/home/luke/ORB_SLAM3/Thirdparty/g2o/stuff 
+C_INCLUDES = -I/home/luke/ORB_SLAM3 -I/home/luke/ORB_SLAM3/include -I/home/luke/ORB_SLAM3/include/CameraModels -I/home/luke/ORB_SLAM3/Pangolin/include -I/home/luke/ORB_SLAM3/Pangolin/build/src/include -I/usr/include/eigen3 -I/home/luke/ORB_SLAM3/Thirdparty/g2o/core -I/home/luke/ORB_SLAM3/Thirdparty/g2o/types -I/home/luke/ORB_SLAM3/Thirdparty/g2o/stuff 
 
 CXX_FLAGS =  -Wall   -O3 -std=c++11  -Wall -W -O3 -DNDEBUG -march=native -O3 -march=native -fPIC  
 
 CXX_DEFINES = -DCOMPILEDWITHC11 -DUNIX -Dg2o_EXPORTS
 
-CXX_INCLUDES = -I/home/luke/ORB_SLAM3 -I/home/luke/ORB_SLAM3/include -I/home/luke/ORB_SLAM3/include/CameraModels -I/home/luke/Pangolin/include -I/home/luke/Pangolin/build/src/include -I/usr/include/eigen3 -I/home/luke/ORB_SLAM3/Thirdparty/g2o/core -I/home/luke/ORB_SLAM3/Thirdparty/g2o/types -I/home/luke/ORB_SLAM3/Thirdparty/g2o/stuff 
+CXX_INCLUDES = -I/home/luke/ORB_SLAM3 -I/home/luke/ORB_SLAM3/include -I/home/luke/ORB_SLAM3/include/CameraModels -I/home/luke/ORB_SLAM3/Pangolin/include -I/home/luke/ORB_SLAM3/Pangolin/build/src/include -I/usr/include/eigen3 -I/home/luke/ORB_SLAM3/Thirdparty/g2o/core -I/home/luke/ORB_SLAM3/Thirdparty/g2o/types -I/home/luke/ORB_SLAM3/Thirdparty/g2o/stuff 
 

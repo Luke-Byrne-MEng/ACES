@@ -128,7 +128,7 @@ Examples/Monocular/mono_kitti: /usr/lib/x86_64-linux-gnu/libopencv_xphoto.so.4.2
 Examples/Monocular/mono_kitti: /usr/lib/x86_64-linux-gnu/libopencv_photo.so.4.2.0
 Examples/Monocular/mono_kitti: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.4.2.0
 Examples/Monocular/mono_kitti: /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0
-Examples/Monocular/mono_kitti: /home/luke/Pangolin/build/src/libpangolin.so
+Examples/Monocular/mono_kitti: Pangolin/build/src/libpangolin.so
 Examples/Monocular/mono_kitti: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 Examples/Monocular/mono_kitti: /usr/lib/x86_64-linux-gnu/libGLX.so
 Examples/Monocular/mono_kitti: /usr/lib/x86_64-linux-gnu/libGLU.so

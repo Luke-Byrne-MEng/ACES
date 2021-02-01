@@ -498,7 +498,7 @@ lib/libORB_SLAM3.so: /usr/lib/x86_64-linux-gnu/libopencv_videostab.so.4.2.0
 lib/libORB_SLAM3.so: /usr/lib/x86_64-linux-gnu/libopencv_viz.so.4.2.0
 lib/libORB_SLAM3.so: /usr/lib/x86_64-linux-gnu/libopencv_xobjdetect.so.4.2.0
 lib/libORB_SLAM3.so: /usr/lib/x86_64-linux-gnu/libopencv_xphoto.so.4.2.0
-lib/libORB_SLAM3.so: /home/luke/Pangolin/build/src/libpangolin.so
+lib/libORB_SLAM3.so: Pangolin/build/src/libpangolin.so
 lib/libORB_SLAM3.so: Thirdparty/DBoW2/lib/libDBoW2.so
 lib/libORB_SLAM3.so: Thirdparty/g2o/lib/libg2o.so
 lib/libORB_SLAM3.so: /usr/lib/x86_64-linux-gnu/libopencv_highgui.so.4.2.0

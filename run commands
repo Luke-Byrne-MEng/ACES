@@ -1,0 +1,9 @@
+roslaunch jet_gazebo jet_gazebo_M327.launch
+
+rosrun ORB_SLAM3 Mono_Inertial ~/ORB_SLAM3/Vocabulary/ORBvoc.txt ~/ORB_SLAM3/Jetson/settings.yaml
+
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py /cmd_vel:=/jet/cmd_vel
+
+/jet/camera/image_raw:=/camera/image_raw /jet/imu:=/imu
+
+/jet/camera/image_raw:=/camera/image_raw /jet/imu:=/imu

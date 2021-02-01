@@ -128,7 +128,7 @@ Examples/Stereo-Inertial/stereo_inertial_tum_vi: /usr/lib/x86_64-linux-gnu/libop
 Examples/Stereo-Inertial/stereo_inertial_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_photo.so.4.2.0
 Examples/Stereo-Inertial/stereo_inertial_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.4.2.0
 Examples/Stereo-Inertial/stereo_inertial_tum_vi: /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0
-Examples/Stereo-Inertial/stereo_inertial_tum_vi: /home/luke/Pangolin/build/src/libpangolin.so
+Examples/Stereo-Inertial/stereo_inertial_tum_vi: Pangolin/build/src/libpangolin.so
 Examples/Stereo-Inertial/stereo_inertial_tum_vi: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 Examples/Stereo-Inertial/stereo_inertial_tum_vi: /usr/lib/x86_64-linux-gnu/libGLX.so
 Examples/Stereo-Inertial/stereo_inertial_tum_vi: /usr/lib/x86_64-linux-gnu/libGLU.so

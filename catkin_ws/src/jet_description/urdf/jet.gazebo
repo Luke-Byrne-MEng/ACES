@@ -1,23 +1,34 @@
 <?xml version="1.0"?>
 <robot>
 
+  <!-- DIFFERENTIAL DRIVE PLUGIN -->
   <gazebo>
     <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
-      <legacyMode>true</legacyMode>
-      <alwaysOn>true</alwaysOn>
       <updateRate>20</updateRate>
       <leftJoint>left_wheel_joint</leftJoint>
       <rightJoint>right_wheel_joint</rightJoint>
       <wheelSeparation>0.3</wheelSeparation>
       <wheelDiameter>0.15</wheelDiameter>
-      <torque>20</torque>
-      <commandTopic>/jet/cmd_vel</commandTopic>
-      <odometryTopic>/jet/odom</odometryTopic>
+      <wheelAcceleration>1.0</wheelAcceleration>
+      <wheelTorque>20</wheelTorque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <robotBaseFrame>chassis</robotBaseFrame>
+      <!-- Odometry source, 0 for ENCODER, 1 for WORLD -->
+      <odometrySource>1</odometrySource>
+      <!-- Set to true to publish transforms for the wheel links -->
+      <publishWheelTF>false</publishWheelTF>
+      <!-- Set to true to publish transforms for the odometry -->
+      <publishOdom>true</publishOdom>
+      <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints -->
+      <publishWheelJointState>false</publishWheelJointState>
+      <!-- Set to true to swap right and left wheels, defaults to true -->
+      <legacyMode>false</legacyMode>
     </plugin>
   </gazebo>
 
+  <!-- ASSIGN COLOURS -->
   <gazebo reference="chassis">
     <material>Gazebo/Orange</material>
   </gazebo>
@@ -38,15 +49,15 @@
     <material>Gazebo/Blue</material>
   </gazebo> 
   
-
+  <!-- CAMERA PLUGIN -->
   <gazebo reference="camera">
-    <sensor type="camera" name="camera1">
-      <update_rate>20.0</update_rate>
+    <sensor type="camera" name="camera">
+      <update_rate>30.0</update_rate>
       <camera name="front">
         <horizontal_fov>1.3962634</horizontal_fov>
         <image>
           <width>800</width>
-          <height>400</height>
+          <height>800</height>
           <format>R8G8B8</format>
         </image>
         <clip>
@@ -62,7 +73,7 @@
       <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
         <alwaysOn>true</alwaysOn>
         <updateRate>0.0</updateRate>
-        <cameraName>jet/camera</cameraName>
+        <cameraName>camera</cameraName>
         <imageTopicName>image_raw</imageTopicName>
         <cameraInfoTopicName>camera_info</cameraInfoTopicName>
         <frameName>camera</frameName>
@@ -76,6 +87,8 @@
     </sensor>
   </gazebo>
 
+
+  <!-- SONAR PLUGINS -->
   <gazebo reference="sonar1_link">
     <sensor type="ray" name="Sonar1">
       <pose>0 0 0 0 0 0</pose>
@@ -172,6 +185,8 @@
     </sensor>
   </gazebo>
 
+
+  <!-- LiDAR PLUGIN -->
   <gazebo reference="hokuyo">
     <sensor type="ray" name="hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
@@ -185,7 +200,6 @@
             <min_angle>-1.308996939</min_angle>
             <max_angle>1.308996939</max_angle>
           </horizontal>
-
         </scan>
         <range>
           <min>0.10</min>
@@ -199,12 +213,13 @@
         </noise>
       </ray>
       <plugin name="gazebo_ros_hokuyo_controller" filename="libgazebo_ros_laser.so">
-        <topicName>/jet/laser/scan</topicName>
+        <topicName>/laser/scan</topicName>
         <frameName>hokuyo</frameName>
       </plugin>
     </sensor>
   </gazebo>
   
+  <!-- IMU PLUGIN -->
   <gazebo reference="IMU_link">
     <gravity>true</gravity>
     <sensor name="imu_sensor" type="imu">
@@ -213,7 +228,7 @@
       <visualize>true</visualize>
       <topic>__default_topic__</topic>
       <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
-        <topicName>/jet/imu</topicName>
+        <topicName>sensor/imu</topicName>
         <bodyName>IMU</bodyName>
         <updateRateHZ>10.0</updateRateHZ>
         <xyzOffset>0 0 0</xyzOffset>
@@ -230,5 +245,5 @@
       <pose>0 0 0 0 0 0</pose>
     </sensor>
   </gazebo>
-
+  
 </robot>
