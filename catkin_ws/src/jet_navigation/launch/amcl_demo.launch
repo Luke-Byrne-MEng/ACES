@@ -19,8 +19,6 @@
     <param name="update_min_d" value="0.5"/>
     <param name="update_min_a" value="1.0"/>
   </node>
-  <!--include file="$(find amcl)/examples/amcl_omni.launch"/-->
-
 
 
   <!-- Move base -->

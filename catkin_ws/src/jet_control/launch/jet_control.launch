@@ -20,7 +20,7 @@
   </node>
 
 
-  <!--<node name="cmdvelrelay" pkg="topic_tools" type="relay" args="/cmd_vel /mobile_base_controller/cmd_vel"/>
-  <node name="odomrelay" pkg="topic_tools" type="relay" args="/mobile_base_controller/odom /odom"/>-->
+  <node name="cmdvelrelay" pkg="topic_tools" type="relay" args="/cmd_vel /mobile_base_controller/cmd_vel"/>
+  <node name="odomrelay" pkg="topic_tools" type="relay" args="/mobile_base_controller/odom /odom"/>
 
 </launch>

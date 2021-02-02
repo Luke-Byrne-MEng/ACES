@@ -89,7 +89,7 @@
     <collision name="collision">
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://jet_description/meshes/Right_Wheel.dae"/>
+        <mesh filename="package://jet_description/meshes/Left_Wheel.dae"/>
       </geometry>
     </collision>
     <visual name="right_wheel_visual">
@@ -270,7 +270,7 @@
     <parent link="chassis"/>
     <axis xyz="1 0 0" rpy="0 0 0"/>
     <limit effort="100" velocity="100"/>
-    <joint_properties damping="3.0" friction="0.0"/>
+    <joint_properties damping="1.0" friction="1.0"/>
   </joint>
 
 
@@ -281,7 +281,7 @@
     <parent link="chassis"/>
     <axis xyz="1 0 0" rpy="0 0 0"/>
     <limit effort="100" velocity="100"/>
-    <joint_properties damping="3.0" friction="0.0"/>
+    <joint_properties damping="1.0" friction="1.0"/>
   </joint>
 
 
