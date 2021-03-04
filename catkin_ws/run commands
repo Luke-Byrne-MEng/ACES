@@ -1,0 +1,30 @@
+rosrun ORB_SLAM3 Mono_Inertial PATH_TO_VOCABULARY PATH_TO_SETTINGS_FILE [EQUALIZATION]	
+
+rosrun ORB_SLAM3 Mono_Inertial ~/ORB_SLAM3/Vocabulary/ORBvoc.txt ~/ORB_SLAM3/Jetson/settings.yaml /jet/camera/image_raw:=/robot1/camera/image_raw /jet/imu:=/robot1/sensor/imu
+
+
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py /cmd_vel:=/jet/cmd_vel
+
+/jet/camera/image_raw:=/camera/image_raw /jet/imu:=/imu
+
+/jet/camera/image_raw:=/camera/image_raw /jet/imu:=/imu
+
+rosrun image_view image_view image:=/robot1/camera/image_raw
+
+/jet/camera/image_raw:=/robot1/camera/image_raw /jet/imu:=/robot1/sensor/imu
+
+rosrun ORB_SLAM3 Mono ~/ORB_SLAM3/Vocabulary/ORBvoc.txt ~/ORB_SLAM3/Jetson/settings.yaml /camera/image_raw:=/robot1/camera/image_raw
+
+roslaunch orb_slam2_ros ~/ctkin_ws/src/ORB-SLAM2_ROS/OR_SLAM2/orb_slam2_ros/launch/CSLAM-dataset.launch
+
+roslaunch orb_slam2_ros ~/ctkin_ws/src/ORB-SLAM2_ROS/OR_SLAM2/orb_slam2_ros/launch/raspicam_mono.launch
+
+roslaunch jet_gazebo jet_gazebo_M327.launch
+
+roslaunch multi_robot Office_with_3_robots.launch
+
+roslaunch orb_slam2_ros gazebo.launch
+
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py /cmd_vel:=/robot1/cmd_vel
+
+rosrun image_view image_view image:=/orb_slam2_mono/debug_image
