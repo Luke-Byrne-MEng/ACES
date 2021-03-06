@@ -40,8 +40,7 @@ sudo bash ACES_install.sh
 ```
 
 # 3. Configuration
-# ROS parameters, topics and services
-### Parameters
+## 3.1 Launch File Parameters
 There are three types of parameters right now: static- and dynamic ros parameters and camera settings.
 The static parameters are send to the ROS parameter server at startup and are not supposed to change. They are set in the launch files which are located at ros/launch. The parameters are:
 
@@ -65,14 +64,9 @@ The parameters are:
 
 Finally, the intrinsic camera calibration parameters along with some hyperparameters can be found in the specific yaml files in orb_slam2/config.
 
-### Published topics
-The following topics are being published and subscribed to by the nodes:
-- All nodes publish (given the settings) a **PointCloud2** containing all key points of the map.
-- Also all nodes publish (given the settings) a **PoseStamped** with the current pose of the camera frame, or the target frame if `target_frame_id` is set.
-- Live **image** from the camera containing the currently found key points and a status text.
-- A **tf** from the pointcloud frame id to the camera frame id (the position), or the target frame if `target_frame_id` is set.
+# 4. Ros Topics
 
-### Subscribed topics
+## 4.1 Subscribed topics
 - The mono node subscribes to:
     - **/camera/image_raw** for the input image
     - **/camera/camera_info** for camera calibration (if `load_calibration_from_cam`) is `true`
@@ -87,7 +81,14 @@ The following topics are being published and subscribed to by the nodes:
     - **image_right/image_color_rect** for corresponding images
     - **image_left/camera_info** for camera calibration (if `load_calibration_from_cam`) is `true`
 
-# 4. Services
+## 4.2 Published topics
+The following topics are being published and subscribed to by the nodes:
+- All nodes publish (given the settings) a **PointCloud2** containing all key points of the map.
+- Also all nodes publish (given the settings) a **PoseStamped** with the current pose of the camera frame, or the target frame if `target_frame_id` is set.
+- Live **image** from the camera containing the currently found key points and a status text.
+- A **tf** from the pointcloud frame id to the camera frame id (the position), or the target frame if `target_frame_id` is set.
+
+## 4.3 ROS Services
 All nodes offer the possibility to save the map via the service node_type/save_map.
 So the save_map services are:
 - **/orb_slam2_rgbd/save_map**
@@ -99,7 +100,7 @@ The save_map service expects the name of the file the map should be saved at as 
 At the moment, while the save to file takes place, the SLAM is inactive.
 
 
-# 4. Running
+# 5. Running
 After sourcing your setup bash using
 ```
 source devel/setup.bash
