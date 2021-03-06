@@ -17,5 +17,8 @@ sudo python3 -mpip install numpy pyopengl Pillow pybind11
 echo -e "${Orange}Installing the ORB_SLAM2 ROS wrapper, explore_lite, multirobot_map_merger, and octomap_server${NC}"
 echo -e ""
 sudo apt install -yos-noetic-teleop-twist-keyboard ros-noetic-octomap ros-noetic-multirobot-map-merge ros-noetic-explore-lite
+cd src
 git clone https://github.com/appliedAI-Initiative/orb_slam_2_ros.git
+cd ..
 catkin_make
+cp .gazebo ~
