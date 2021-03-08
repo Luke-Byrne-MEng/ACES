@@ -24,6 +24,6 @@ sudo apt install -y ros-noetic-teleop-twist-keyboard ros-noetic-octomap ros-noet
 cd src
 git clone https://github.com/appliedAI-Initiative/orb_slam_2_ros.git
 git clone https://github.com/hrnr/map-merge
->> "catkin_package()" map-merge/map_merge_3d/CMakeLists.txt
+echo "catkin_package()" | sudo tee -a map-merge/map_merge_3d/CMakeLists.txt
 cd ../..
 cp -r .gazebo ~
