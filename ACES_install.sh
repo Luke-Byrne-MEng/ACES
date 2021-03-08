@@ -17,11 +17,14 @@ sudo apt install -y python3-dev python3-pip python3-opencv libgl1-mesa-dev libgl
 sudo python3 -mpip install numpy pyopengl Pillow pybind11
 echo -e ""
 echo -e ""
-echo -e "${Orange}Installing the ORB_SLAM2 ROS wrapper, explore_lite, multirobot_map_merger, and octomap_server${NC}"
+echo -e "${Orange}Installing the ORB_SLAM2 ROS wrapper, explore_lite, multirobot_map_merge, the navigation stack, and octomap_server${NC}"
 echo -e ""
-sleep 2
-sudo apt install -y ros-noetic-teleop-twist-keyboard ros-noetic-octomap ros-noetic-multirobot-map-merge ros-noetic-explore-lite
+sleep 4
+sudo apt install -y ros-noetic-teleop-twist-keyboard ros-noetic-octomap ros-noetic-multirobot-map-merge ros-noetic-explore-lite ros-noetic-navigation
 cd src
 git clone https://github.com/appliedAI-Initiative/orb_slam_2_ros.git
-cd ..
+git clone https://github.com/hrnr/map-merge
+>> "catkin_package()" map-merge/map_merge_3d/CMakeLists.txt
+cd ../..
 cp -r .gazebo ~
+
