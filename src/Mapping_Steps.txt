@@ -1,0 +1,7 @@
+Run any world file. E.g. roslaunch jet_gazebo jet_gazebo_Map_2.launch 
+
+Run rviz. E.g. roslaunch jet_description jet_rviz.launch
+
+Run gmapping node E.g. roslaunch jet_description jet_slam_gmapping.launch
+
+Save map E.g. rosrun map_server map_saver -f (Map Location Here)

@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="Cabinet_2">
+    <static>true</static>
+    <link name="link">
+      <pose>0 0 0.04 0 0 0</pose>
+      <inertial>
+        <mass>30</mass>
+        <inertia>
+          <ixx>11.17</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>10.057</iyy>
+          <iyz>0</iyz>
+          <izz>1.625</izz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <geometry>
+          <mesh>
+	    <uri>model://Cabinet_2/meshes/Cabinet_2.dae</uri>
+	  </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+	    <uri>model://Cabinet_2/meshes/Cabinet_2.dae</uri>
+	  </mesh>
+        </geometry>
+      </visual>
+
+    </link>
+  </model>
+</sdf>
