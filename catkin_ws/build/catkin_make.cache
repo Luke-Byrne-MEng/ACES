@@ -1,2 +1,0 @@
-jet_control:jet_description:jet_gazebo
--DCATKIN_DEVEL_PREFIX=/home/luke/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/luke/catkin_ws/install -G Unix Makefiles
