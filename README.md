@@ -10,6 +10,8 @@ This project has been developed and optimised for **Ubuntu 20.04** with **ROS No
 # 1. Dependencies
 These are the project dependencies. Other than ROS and Gazebo, everything will be installed automatically when running the install script.
 If you would like to use different versions of these dependences then please edit the install script accordingly.
+- ROS
+- Gazebo
 - python 3
 - pip
 - open cv
@@ -29,14 +31,15 @@ If you would like to use different versions of these dependences then please edi
 - pybind11
 
 # 2. Installation
-Clone the repository into your catkin workspace:
+Clone the repository into your catkin workspace /src/ folder:
 ```
 git clone https://github.com/Luke-Byrne-uni/ACES.git
 ```
-Then run the install script:
+Then run the install script, and compile with catkin_make:
 ```
 cd ACES
 sudo bash ACES_install.sh
+caktin_make
 ```
 
 # 3. Configuration
