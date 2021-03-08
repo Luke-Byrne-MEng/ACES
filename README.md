@@ -10,6 +10,7 @@ This project has been developed and optimised for **Ubuntu 20.04** with **ROS No
 # 1. Dependencies
 These are the project dependencies. Other than ROS and Gazebo, everything will be installed automatically when running the install script.
 If you would like to use different versions of these dependences then please edit the install script accordingly.
+```
 - ROS
 - Gazebo
 - python 3
@@ -29,6 +30,7 @@ If you would like to use different versions of these dependences then please edi
 - pyopengl
 - pillow
 - pybind11
+```
 
 # 2. Installation
 Clone the repository into your catkin workspace /src/ folder:
