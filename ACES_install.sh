@@ -27,4 +27,3 @@ git clone https://github.com/hrnr/map-merge
 >> "catkin_package()" map-merge/map_merge_3d/CMakeLists.txt
 cd ../..
 cp -r .gazebo ~
-
