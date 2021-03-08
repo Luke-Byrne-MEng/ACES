@@ -21,5 +21,4 @@ echo -e "${Orange}Installing explore_lite, move-base, and octomap_server${NC}"
 echo -e ""
 sleep 2
 sudo apt install -y ros-noetic-teleop-twist-keyboard ros-noetic-octomap ros-noetic-explore-lite ros-noetic-move-base
-cd ..
 cp -r .gazebo ~
