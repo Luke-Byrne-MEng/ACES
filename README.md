@@ -7,6 +7,7 @@ The ACES (Automated Colaborative Exploration Swarm) system is a comprehensive mu
 
 This project has been developed and optimised for **Ubuntu 20.04** with **ROS Noetic**. However it should be simple to edit the install script to use other distros and ROS versions.
 
+
 # 1. Dependencies
 These are the project dependencies. Other than ROS and Gazebo, everything will be installed automatically when running the install script.
 If you would like to use different versions of these dependences then please edit the install script accordingly.
@@ -32,6 +33,7 @@ If you would like to use different versions of these dependences then please edi
 - pybind11
 ```
 
+
 # 2. Installation
 Clone the repository into your catkin workspace /src/ folder:
 ```
@@ -43,6 +45,7 @@ cd ACES
 sudo bash ACES_install.sh
 caktin_make
 ```
+
 
 # 3. Configuration
 ## 3.1 Launch File Parameters
