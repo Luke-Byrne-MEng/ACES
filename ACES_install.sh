@@ -17,9 +17,9 @@ sudo apt install -y python3-dev python3-pip python3-opencv libgl1-mesa-dev libgl
 sudo python3 -mpip install numpy pyopengl Pillow pybind11
 echo -e ""
 echo -e ""
-echo -e "${Orange}Installing explore_lite, octomap_server${NC}"
+echo -e "${Orange}Installing explore_lite, move-base, and octomap_server${NC}"
 echo -e ""
 sleep 2
-sudo apt install -y ros-noetic-teleop-twist-keyboard ros-noetic-octomap ros-noetic-explore-lite
+sudo apt install -y ros-noetic-teleop-twist-keyboard ros-noetic-octomap ros-noetic-explore-lite ros-noetic-move-base
 cd ..
 cp -r .gazebo ~
