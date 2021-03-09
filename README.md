@@ -10,8 +10,8 @@ This project has been developed and optimised for **Ubuntu 20.04** with **ROS No
 # 1. System Structure
 ![System_block_diagram](https://github.com/Luke-Byrne-uni/ACES/blob/main/system1.png?raw=true)
 
-The following ROS packages are used within this project:
-- ![orb_slam_2_ros](https://github.com/appliedAI-Initiative/orb_slam_2_ros) performing monocular SLAM
+The following ROS nodes are used within this project:
+- ![orb_slam_2_mono](https://github.com/appliedAI-Initiative/orb_slam_2_ros) performing monocular SLAM
 - ![octomap_server](http://wiki.ros.org/octomap_server) converting the SLAM point cloud into a 2D occupancy grid & making global map readable
 - ![explore_lite](http://wiki.ros.org/explore_lite) using the occupancy grid to perform greedy fronteer exploration
 - ![move_base](http://wiki.ros.org/move_base) to translate the eploration goals to movement commands
