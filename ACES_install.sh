@@ -4,7 +4,7 @@ Red=$'\e[0;31m'
 Green=$'\e[0;32m'
 
 echo -e "${Green}This script installs the dependences and requrements to run the ACES simulations."
-echo -e "${Green}This script was written for Ubuntu 20, and ROS noetic."
+echo -e "${Green}This script was written for Ubuntu 20.04, and ROS noetic."
 echo -e "${Green}Please exit, and edit this script if using different versions of Ubuntu / ROS."
 sleep 15
 echo -e ""
