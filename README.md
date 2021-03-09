@@ -166,13 +166,7 @@ Each of the ROS packages used in this project have their own parameters within t
 
 ## 5.2 ROS Services
 
-- **/orb_slam2_rgbd/save_map**
-- **/orb_slam2_mono/save_map**
-- **/orb_slam2_stereo/save_map**
-
-The save_map service expects the name of the file the map should be saved at as input.
-
-At the moment, while the save to file takes place, the SLAM is inactive.
+- **/orb_slam2_mono/save_map** Saves a robot's local SLAM map. This service expects the name of the file the map should be saved at as input.
 
 
 # 6. Running
