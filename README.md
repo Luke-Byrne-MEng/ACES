@@ -49,7 +49,6 @@ If you would like to use different versions of these dependences then please edi
 # 3. Installation
 Clone the repository into your catkin workspace /src/ folder:
 ```
-
 git clone https://github.com/Luke-Byrne-uni/ACES.git
 ```
 Then run the install script, and compile with catkin_make:
@@ -108,84 +107,46 @@ Each of the ROS packages used in this project have their own parameters within t
 - **min_frontier_size**: Double. Minimum size of the frontier to consider the frontier as the exploration goal. In meters. 
 
 ### 4.1.4 move_base
-~base_global_planner (string, default: "navfn/NavfnROS" For 1.1+ series)
-    The name of the plugin for the global planner to use with move_base, see pluginlib documentation for more details on plugins. This plugin must adhere to the nav_core::BaseGlobalPlanner interface specified in the nav_core package. (1.0 series default: "NavfnROS") 
-~base_local_planner (string, default: "base_local_planner/TrajectoryPlannerROS" For 1.1+ series)
-    The name of the plugin for the local planner to use with move_base see pluginlib documentation for more details on plugins. This plugin must adhere to the nav_core::BaseLocalPlanner interface specified in the nav_core package. (1.0 series default: "TrajectoryPlannerROS") 
-~recovery_behaviors (list, default: [{name: conservative_reset, type: clear_costmap_recovery/ClearCostmapRecovery}, {name: rotate_recovery, type: rotate_recovery/RotateRecovery}, {name: aggressive_reset, type: clear_costmap_recovery/ClearCostmapRecovery}] For 1.1+ series)
-    A list of recovery behavior plugins to use with move_base, see pluginlib documentation for more details on plugins. These behaviors will be run when move_base fails to find a valid plan in the order that they are specified. After each behavior completes, move_base will attempt to make a plan. If planning is successful, move_base will continue normal operation. Otherwise, the next recovery behavior in the list will be executed. These plugins must adhere to the nav_core::RecoveryBehavior interface specified in the nav_core package. (1.0 series default: [{name: conservative_reset, type: ClearCostmapRecovery}, {name: rotate_recovery, type: RotateRecovery}, {name: aggressive_reset, type: ClearCostmapRecovery}]). Note: For the default parameters, the aggressive_reset behavior will clear out to a distance of 4 * ~/local_costmap/circumscribed_radius. 
-~controller_frequency (double, default: 20.0)
-    The rate in Hz at which to run the control loop and send velocity commands to the base. 
-~planner_patience (double, default: 5.0)
-    How long the planner will wait in seconds in an attempt to find a valid plan before space-clearing operations are performed. 
-~controller_patience (double, default: 15.0)
-    How long the controller will wait in seconds without receiving a valid control before space-clearing operations are performed. 
-~conservative_reset_dist (double, default: 3.0)
-    The distance away from the robot in meters beyond which obstacles will be cleared from the costmap when attempting to clear space in the map. Note, this parameter is only used when the default recovery behaviors are used for move_base. 
-~recovery_behavior_enabled (bool, default: true)
-    Whether or not to enable the move_base recovery behaviors to attempt to clear out space. 
-~clearing_rotation_allowed (bool, default: true)
-    Determines whether or not the robot will attempt an in-place rotation when attempting to clear out space. Note: This parameter is only used when the default recovery behaviors are in use, meaning the user has not set the recovery_behaviors parameter to anything custom. 
-~shutdown_costmaps (bool, default: false)
-    Determines whether or not to shutdown the costmaps of the node when move_base is in an inactive state 
-~oscillation_timeout (double, default: 0.0)
-    How long in seconds to allow for oscillation before executing recovery behaviors. A value of 0.0 corresponds to an infinite timeout. New in navigation 1.3.1 
-~oscillation_distance (double, default: 0.5)
-    How far in meters the robot must move to be considered not to be oscillating. Moving this far resets the timer counting up to the ~oscillation_timeout New in navigation 1.3.1 
-~planner_frequency (double, default: 0.0)
-    The rate in Hz at which to run the global planning loop. If the frequency is set to 0.0, the global planner will only run when a new goal is received or the local planner reports that its path is blocked. New in navigation 1.6.0 
-~max_planning_retries (int32_t, default: -1)
-    How many times to allow for planning retries before executing recovery behaviors. A value of -1.0 corresponds to an infinite retries.
+- **base_global_planner** String. The name of the plugin for the global planner to use with move_base, see pluginlib documentation for more details on plugins. This plugin must adhere to the nav_core::BaseGlobalPlanner interface specified in the nav_core package. (1.0 series default: "NavfnROS") 
+- **base_local_planner** String. The name of the plugin for the local planner to use with move_base see pluginlib documentation for more details on plugins. This plugin must adhere to the nav_core::BaseLocalPlanner interface specified in the nav_core package. (1.0 series default: "TrajectoryPlannerROS") 
+- **recovery_behaviors** List. A list of recovery behavior plugins to use with move_base, see pluginlib documentation for more details on plugins. These behaviors will be run when move_base fails to find a valid plan in the order that they are specified. After each behavior completes, move_base will attempt to make a plan. If planning is successful, move_base will continue normal operation. Otherwise, the next recovery behavior in the list will be executed. These plugins must adhere to the nav_core::RecoveryBehavior interface specified in the nav_core package. (1.0 series default: [{name: conservative_reset, type: ClearCostmapRecovery}, {name: rotate_recovery, type: RotateRecovery}, {name: aggressive_reset, type: ClearCostmapRecovery}]). Note: For the default parameters, the aggressive_reset behavior will clear out to a distance of 4 * ~/local_costmap/circumscribed_radius. 
+- **controller_frequency** Double. The rate in Hz at which to run the control loop and send velocity commands to the base. 
+- **planner_patience** Double. How long the planner will wait in seconds in an attempt to find a valid plan before space-clearing operations are performed. 
+- **controller_patience** Double. How long the controller will wait in seconds without receiving a valid control before space-clearing operations are performed. 
+- **conservative_reset_dist** Double. The distance away from the robot in meters beyond which obstacles will be cleared from the costmap when attempting to clear space in the map. Note, this parameter is only used when the default recovery behaviors are used for move_base. 
+- **recovery_behavior_enabled** Bool. Whether or not to enable the move_base recovery behaviors to attempt to clear out space. 
+- **clearing_rotation_allowed** Bool. Determines whether or not the robot will attempt an in-place rotation when attempting to clear out space. Note: This parameter is only used when the default recovery behaviors are in use, meaning the user has not set the recovery_behaviors parameter to anything custom. 
+- **shutdown_costmaps** Bool. Determines whether or not to shutdown the costmaps of the node when move_base is in an inactive state 
+- **oscillation_timeout** Double. How long in seconds to allow for oscillation before executing recovery behaviors. A value of 0.0 corresponds to an infinite timeout. New in navigation 1.3.1 
+- **oscillation_distance** Double. How far in meters the robot must move to be considered not to be oscillating. Moving this far resets the timer counting up to the ~oscillation_timeout New in navigation 1.3.1 
+- **planner_frequency** Double. The rate in Hz at which to run the global planning loop. If the frequency is set to 0.0, the global planner will only run when a new goal is received or the local planner reports that its path is blocked. New in navigation 1.6.0 
+- **max_planning_retries** Int. How many times to allow for planning retries before executing recovery behaviors. A value of -1.0 corresponds to an infinite retries.
 
 ### 4.1.5 map_merge_3d (also called map_merge)
-~robot_map_topic (string, default: map)
-    Name of robot map topic without namespaces (last component of the topic name). Only topics with this name are considered when looking for new maps to merge. This topics may be subject to further filtering (see below). 
-~robot_namespace (string, default: <empty string>)
-    Fixed part of the robot map topic. You can employ this parameter to further limit which topics are considered during dynamic lookup for robots. Only topics which contain (anywhere) this string are considered for lookup. Unlike robot_map_topic you are not limited by namespace logic. Topics are filtered using text-based search. Therefore robot_namespace does not need to be a ROS namespace, but it can contain slashes etc. This string must be a common part of all maps topic name (all robots for which you want to merge map). 
-~merged_map_topic (string, default: map)
-    Topic name where merged map is published. 
-~world_frame (string, default: world)
-    Frame id (in tf tree) which is assigned to published merged map and used as reference frame for tf transforms. 
-~compositing_rate (double, default: 0.3)
-    Rate in Hz. Basic frequency on which the node merges maps and publishes merged map. Increase this value if you want faster updates. 
-~discovery_rate (double, default: 0.05)
-    Rate in Hz. Frequency on which this node discovers new robots (maps). Increase this value if you need more agile behaviour when adding new robots. 
-~estimation_rate (double, default: 0.01)
-    Rate in Hz. Frequency on which this node re-estimates transformations between maps. Estimation is cpu-intensive, so you may wish to lower this value. 
-~publish_tf (bool, default: true)
-    Whether to publish estimated transforms in the tf tree. See below. 
-~resolution (double, default: 0.1)
-    Resolution used for the registration. Small value increases registration time. 
-~descriptor_radius (double, default: resolution * 8.0)
-    Radius for descriptors computation. 
-~outliers_min_neighbours (int, default: 50)
-    Minimum number of neighbours for a point to be kept in the map during outliers pruning. 
-~normal_radius (double, default: resolution * 6.0)
-    Radius used for estimating normals. 
-~keypoint_type (string, default: SIFT)
-    Type of keypoints used. Possible values are SIFT, HARRIS. 
-~keypoint_threshold (double, default: 5.0)
-    Keypoints with lower response that this value are pruned. Lower this threshold when using Harris keypoints (you can set 0.0). 
-~descriptor_type (string, default: PFH)
-    Type of descriptors used. Possible values are PFH, PFHRGB, FPFH, RSD, SHOT, SC3D. 
-~estimation_method (string, default: MATCHING)
-    Type of descriptors matching algorithm used. This algorithm is used for initial global match. Possible values are MATCHING, SAC_IA. 
-~refine_transform (bool, default: true)
-    Whether to refine estimated transformation with ICP or not. 
-~inlier_threshold (double, default: resolution * 5.0)
-    Inlier threshold used in RANSAC during estimation. 
-~max_correspondence_distance (double, default: inlier_threshold * 2.0)
-    Maximum distance for matched points to be considered the same point. 
-~max_iterations (int, default: 500)
-    Maximum iterations for RANSAC. 
-~matching_k (int, default: 5)
-    Number of the nearest descriptors to consider for matching. 
-~transform_epsilon (double, default: 1e-2)
-    The smallest change allowed until ICP convergence. 
-~confidence_threshold (double, default: 0.0)
-    Minimum confidence in the pair-wise transform estimate to be included in the map-merging graph. Pair-wise transformations with lower confidence are not considered when computing global transforms. Increase this value if you are having problems with invalid transforms being estimated. The confidence value is computed as a reciprocal of Euclidean distance between transformed maps. 
-~output_resolution (double, default: 0.05)
-    Resolution of the merged global map. 
+- **robot_map_topic** String. Name of robot map topic without namespaces (last component of the topic name). Only topics with this name are considered when looking for new maps to merge. This topics may be subject to further filtering (see below). 
+- **robot_namespace** String. Fixed part of the robot map topic. You can employ this parameter to further limit which topics are considered during dynamic lookup for robots. Only topics which contain (anywhere) this string are considered for lookup. Unlike robot_map_topic you are not limited by namespace logic. Topics are filtered using text-based search. Therefore robot_namespace does not need to be a ROS namespace, but it can contain slashes etc. This string must be a common part of all maps topic name (all robots for which you want to merge map). 
+- **merged_map_topic** String. Topic name where merged map is published. 
+- **world_frame** String. Frame id (in tf tree) which is assigned to published merged map and used as reference frame for tf transforms. 
+- **compositing_rate** Double. Rate in Hz. Basic frequency on which the node merges maps and publishes merged map. Increase this value if you want faster updates. 
+- **discovery_rate** Double. Rate in Hz. Frequency on which this node discovers new robots (maps). Increase this value if you need more agile behaviour when adding new robots. 
+- **estimation_rate** Double. Rate in Hz. Frequency on which this node re-estimates transformations between maps. Estimation is cpu-intensive, so you may wish to lower this value. 
+- **publish_tf** Bool. Whether to publish estimated transforms in the tf tree. See below. 
+- **resolution** Double. Resolution used for the registration. Small value increases registration time. 
+- **descriptor_radius** Double. Radius for descriptors computation. 
+- **outliers_min_neighbours** Int. Minimum number of neighbours for a point to be kept in the map during outliers pruning. 
+- **normal_radius** Double. Radius used for estimating normals. 
+- **keypoint_type** String. Type of keypoints used. Possible values are SIFT, HARRIS. 
+- **keypoint_threshold** Double. Keypoints with lower response that this value are pruned. Lower this threshold when using Harris keypoints (you can set 0.0). 
+- **descriptor_type** String. Type of descriptors used. Possible values are PFH, PFHRGB, FPFH, RSD, SHOT, SC3D. 
+- **estimation_method** String. Type of descriptors matching algorithm used. This algorithm is used for initial global match. Possible values are MATCHING, SAC_IA. 
+- **refine_transform** Bool. Whether to refine estimated transformation with ICP or not. 
+- **inlier_threshold** Double. Inlier threshold used in RANSAC during estimation. 
+- **max_correspondence_distance** Double. Maximum distance for matched points to be considered the same point. 
+- **max_iterations** Int. Maximum iterations for RANSAC. 
+- **matching_k** Int. Number of the nearest descriptors to consider for matching. 
+- **transform_epsilon** Double. The smallest change allowed until ICP convergence. 
+- **confidence_threshold** Double. Minimum confidence in the pair-wise transform estimate to be included in the map-merging graph. Pair-wise transformations with lower confidence are not considered when computing global transforms. Increase this value if you are having problems with invalid transforms being estimated. The confidence value is computed as a reciprocal of Euclidean distance between transformed maps. 
+- **output_resolution** Double. Resolution of the merged global map. 
 
 ## 4.2 Gazebo configuration
 
