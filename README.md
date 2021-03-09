@@ -15,7 +15,7 @@ The following ROS nodes are used within this project:
 - ![octomap_server](http://wiki.ros.org/octomap_server) converting the SLAM point cloud into a 2D occupancy grid & making global map readable
 - ![explore_lite](http://wiki.ros.org/explore_lite) using the occupancy grid to perform greedy fronteer exploration
 - ![move_base](http://wiki.ros.org/move_base) to translate the eploration goals to movement commands
-- ![map_merge_3d](http://wiki.ros.org/map_merge_3d) collecting each robot's point cloud and merging them into a global map
+- ![map_merge_node](http://wiki.ros.org/map_merge_3d) collecting each robot's point cloud and merging them into a global map
 
 These will all be installed via the ACES_install.sh script provided in this repo
 
