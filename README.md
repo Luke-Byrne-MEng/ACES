@@ -70,7 +70,7 @@ caktin_make
 
 
 # 4. Configuration
-Configuration of the ACES system, and of the Gazebo simulation is done via parameters in the ACES launch files. Although the system should work as-is, it is possible to edit these parameters to change system behaviour. A complete list, and discription, of system parameters is a vailable in the [ACES_config.md](https://github.com/Luke-Byrne-uni/ACES/blob/main/ACES_config.md) file.
+Configuration of the ACES system, and of the Gazebo simulation is done via parameters in the ACES launch files. Although the system should work as-is, it is possible to edit these parameters to change system behaviour. A complete list, and discription, of system parameters is available in the [ACES_config.md](https://github.com/Luke-Byrne-uni/ACES/blob/main/ACES_config.md) file.
 
 
 # 5. Ros Topics & Services
