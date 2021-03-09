@@ -75,18 +75,10 @@ Configuration of the ACES system, and of the Gazebo simulation is done via param
 
 # 5. Ros Topics & Services
 
-## 5.1 Publisdhed Topics
-### 5.1.1 obslam_2_ros_mono
+## 5.1 Topics
 
 
-### 5.1.2 octomap_server
-
-### 5.1.3 explore_lite
-
-### 5.1.4 octomap_server
-
-
-## 5.2 ROS Services
+## 5.2 Services
 
 - **/orb_slam2_mono/save_map** Saves a robot's local SLAM map. This service expects the name of the file the map should be saved at as input.
 
