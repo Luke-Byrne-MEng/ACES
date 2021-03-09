@@ -1,0 +1,8 @@
+prefix=/home/kshabkhez/ACES/catkin_ws/install
+
+Name: jet_slam
+Description: Description of jet_slam
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

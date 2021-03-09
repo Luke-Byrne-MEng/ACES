@@ -1,4 +1,4 @@
-prefix=/home/shabkhezk/ACES/catkin_ws/install
+prefix=/home/kshabkhez/ACES/catkin_ws/install
 
 Name: jet_description
 Description: Description of jet_description

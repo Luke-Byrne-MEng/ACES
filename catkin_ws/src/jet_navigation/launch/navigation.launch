@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<launch>
+  <!-- Arguments -->
+  <arg name="map_file" default="$(find jet_navigation)/maps/test_map.yaml"/>
+  <arg name="open_rviz" default="true"/>
+
+  <!-- Robot -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find jet_description)/urdf/jet.xacro'"/>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="False"/>
+  </node>  
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="50.0" />
+  </node>
+
+  <!-- Map server -->
+  <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
+
+  <!-- AMCL -->
+  <include file="$(find jet_navigation)/launch/amcl.launch"/>
+    <arg name="use_map_topic" value="false" />
+    <arg name="scan_topic"    value="/laser/scan" />
+
+  <!-- Move_Base -->
+  <include file="$(find jet_navigation)/launch/move_base.launch"> </include>
+
+  <!-- Rviz -->
+  <group if="$(arg open_rviz)"> 
+    <node pkg="rviz" type="rviz" name="rviz" required="true"/>
+  </group>
+</launch>

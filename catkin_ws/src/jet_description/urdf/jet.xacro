@@ -1,70 +1,48 @@
 <?xml version="1.0"?>
 <robot name="Jet" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <!-- Import all Gazebo-customization elements, including Gazebo colors -->
   <xacro:include filename="$(find jet_description)/urdf/jet.gazebo"/>
-  <!-- Import Rviz colors -->
-  <xacro:include filename="$(find jet_description)/urdf/materials.xacro"/>
 
-<!--........................LINKS........................-->
+  <!--........................Dummy Link.............................-->
+  <link name="Main_Frame">
+   </link>
+   <joint name="Main_Frame_Joint" type="fixed">
+     <parent link="Main_Frame"/>
+     <child link="chassis"/>
+     <origin xyz="0 0 0" rpy="0 0 1.570796327"/>
+   </joint>
 
-  <!-- Chassis -->
+  <!--.........................Chassis...............................-->
   <link name='chassis'>
-    <pose>0 0 0 0 0 0</pose>
-    <inertial>
-      <mass value="2.5"/>
-      <origin xyz="0 0 0" rpy=" 0 0 0"/>
-      <inertia
-          ixx="8.85e-3" ixy="0" ixz="0"
-          iyy="27.08e-3" iyz="0"
-          izz="19.27e-3"/>
-    </inertial>
     <collision name='collision'>
-      <origin xyz="0 0 0" rpy="0 0 3.141592654"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://jet_description/meshes/Chassis.dae"/>
       </geometry>
     </collision>
     <visual name='chassis_visual'>
-      <origin xyz="0 0 0" rpy="0 0 3.141592654"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://jet_description/meshes/Chassis.dae"/>
       </geometry>
     </visual>
-  </link>
-
-
-  <!-- Caster Link -->
-  <link name="caster_link">
-    <collision name="collision">
-      <origin xyz="0 0 0" rpy="0 0 3.141592654"/>
-      <geometry>
-        <mesh filename="package://jet_description/meshes/Caster_Link.dae"/>
-      </geometry>
-    </collision>
-    <visual name="caster_link_visual">
-      <origin xyz="0 0 0" rpy="0 0 3.141592654"/>
-      <geometry>
-        <mesh filename="package://jet_description/meshes/Caster_Link.dae"/>
-      </geometry>
-    </visual>
     <inertial>
-      <origin xyz="0 0 0" rpy="0 0 3.141592654"/>
-      <mass value="0.5"/>
+      <mass value="2.5"/>
+      <origin xyz="0 0 0" rpy=" 0 0 0"/>
       <inertia
-        ixx="3.80e-4" ixy="0.0" ixz="0.0"
-        iyy="4.08e-4" iyz="0.0"
-        izz="3.80e-4"/>
+          ixx="27.08e-3" ixy="0" ixz="0"
+          iyy="8.85e-3" iyz="0"
+          izz="19.27e-3"/>
     </inertial>
   </link>
 
 
-  <!-- Left Wheel -->
+  <!--..............................Left Wheel..................................-->
   <link name="left_wheel">
     <collision name="collision">
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 1.570796327 0"/>
       <geometry>
-        <mesh filename="package://jet_description/meshes/Left_Wheel.dae"/>
+        <cylinder radius="0.075" length="0.03"/>
       </geometry>
     </collision>
     <visual name="left_wheel_visual">
@@ -83,13 +61,20 @@
     </inertial>
   </link>
 
+  <joint type="continuous" name="left_wheel_joint">
+    <origin xyz="0.15 -0.1 0.02" rpy="0 0 0"/>
+    <child link="left_wheel"/>
+    <parent link="chassis"/>
+    <axis xyz="1 0 0" rpy="0 0 0"/>
+  </joint>
 
-  <!-- Right Wheel -->
+
+  <!--..............................Right Wheel..................................-->
   <link name="right_wheel">
     <collision name="collision">
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 1.570796327 0"/>
       <geometry>
-        <mesh filename="package://jet_description/meshes/Left_Wheel.dae"/>
+        <cylinder radius="0.075" length="0.03"/>
       </geometry>
     </collision>
     <visual name="right_wheel_visual">
@@ -108,13 +93,52 @@
     </inertial>
   </link>
 
+  <joint type="continuous" name="right_wheel_joint">
+    <origin xyz="-0.15 -0.1 0.02" rpy="0 0 0"/>
+    <child link="right_wheel"/>
+    <parent link="chassis"/>
+    <axis xyz="1 0 0" rpy="0 0 0"/>
+  </joint>
 
-  <!-- Caster Wheel -->
-  <link name="caster_wheel">
+
+  <!--..............................Caster Link...............................-->
+  <link name="caster_link">
     <collision name="collision">
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://jet_description/meshes/Caster_Wheel.dae"/>
+        <mesh filename="package://jet_description/meshes/Caster_Link.dae"/>
+      </geometry>
+    </collision>
+    <visual name="caster_link_visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://jet_description/meshes/Caster_Link.dae"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.5"/>
+      <inertia
+        ixx="3.80e-4" ixy="0.0" ixz="0.0"
+        iyy="4.08e-4" iyz="0.0"
+        izz="3.80e-4"/>
+    </inertial>
+  </link>
+  
+  <joint type="continuous" name="caster_joint">
+    <origin xyz="0 0.1 0.005" rpy="0 0 0"/>
+    <child link="caster_link"/>
+    <parent link="chassis"/>
+    <axis xyz="0 0 1" rpy="0 0 0"/>
+  </joint>
+  
+  
+  <!--..............................Caster Wheel..................................-->
+  <link name="caster_wheel">
+    <collision name="collision">
+      <origin xyz="0 0 0" rpy="0 1.570796327 0"/>
+      <geometry>
+        <cylinder radius="0.0225" length="0.015"/>
       </geometry>
     </collision>
     <visual name="caster_wheel_visual">
@@ -133,120 +157,62 @@
     </inertial>
   </link>
 
+  <joint type="continuous" name="caster_turn">
+    <origin xyz="0 0.02 -0.0375" rpy="0 0 0"/>
+    <child link="caster_wheel"/>
+    <parent link="caster_link"/>
+    <axis xyz="1 0 0" rpy="0 0 0"/>
+  </joint>
 
-  <!-- Camera -->
+
+  <!--................................Camera..................................-->
   <link name="camera">
-    <collision name="collision">
-      <origin xyz="0 0 0" rpy="1.570796327 0 1.570796327"/>
-      <geometry>
-        <mesh filename="package://jet_description/meshes/Camera.dae"/>
-      </geometry>
-    </collision>
     <visual name="camera_visual">
-      <origin xyz="0 0 0" rpy="1.570796327 0 1.570796327"/>
+      <origin xyz="0 0 0" rpy="0 1.570796327 0"/>
       <geometry>
         <mesh filename="package://jet_description/meshes/Camera.dae"/>
       </geometry>
     </visual>
     <inertial>
-      <origin xyz="0 0 0" rpy="1.570796327 0 1.570796327"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1" />
       <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
     </inertial>
   </link>
 
-  <!-- Sonar_Sensor_1 -->
-  <link name="sonar1_link">
-    <collision name="collision">
-      <origin xyz="0 0 0" rpy="0 0 -1.570796327"/>
-      <geometry>
-        <mesh filename="package://jet_description/meshes/Sonar_1.dae"/>
-      </geometry>
-    </collision>
-    <visual name="sonar1_visual">
-      <origin xyz="0 0 0" rpy="0 0 -1.570796327"/>
-      <geometry>
-        <mesh filename="package://jet_description/meshes/Sonar_1.dae"/>
-      </geometry>
-    </visual>
-    <inertial>
-      <mass value="1e-5" />
-      <origin xyz="0 0 0" rpy="0 0 -1.570796327"/>
-      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
-    </inertial>
-  </link>
+  <joint name="camera_joint" type="fixed">
+    <axis xyz="0 0 0" rpy="0 0 0" />
+    <origin xyz="0 -0.145 0.025" rpy="0 0 -1.570796327"/>
+    <parent link="chassis"/>
+    <child link="camera"/>
+  </joint>
 
-  <!-- Sonar_Sensor_2 -->
-  <link name="sonar2_link">
-    <collision name="collision">
-      <origin xyz="0 0 0" rpy="0 0 -1.570796327"/>
-      <geometry>
-        <mesh filename="package://jet_description/meshes/Sonar_2.dae"/>
-      </geometry>
-    </collision>
-    <visual name="sonar2_visual">
-      <origin xyz="0 0 0" rpy="0 0 -1.570796327"/>
-      <geometry>
-        <mesh filename="package://jet_description/meshes/Sonar_2.dae"/>
-      </geometry>      
-    </visual>
-    <inertial>
-      <mass value="1e-5" />
-      <origin xyz="0 0 0" rpy="0 0 -1.570796327"/>
-      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
-    </inertial>
-  </link>
 
-  <!-- Sonar_Sensor_3 -->
-  <link name="sonar3_link">
-    <collision name="collision">
-      <origin xyz="0 0 0" rpy="0 0 -1.570796327"/>
-      <geometry>
-        <mesh filename="package://jet_description/meshes/Sonar_3.dae"/>
-      </geometry>
-    </collision>
-    <visual name="sonar2_visual">
-      <origin xyz="0 0 0" rpy="0 0 -1.570796327"/>
-      <geometry>
-        <mesh filename="package://jet_description/meshes/Sonar_3.dae"/>
-      </geometry>
-    </visual>
-    <inertial>
-      <mass value="1e-5" />
-      <origin xyz="0 0 0" rpy="0 0 -1.570796327"/>
-      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
-    </inertial>
-  </link>
-
-  <!-- Liadar -->
+  <!--............................Liadar................................-->
   <link name="hokuyo">
-    <collision name="collision">
-      <origin xyz="-0.0225 0 -0.02" rpy="0 0 3.141592654"/>
-      <geometry>
-        <mesh filename="package://jet_description/meshes/Hokuyo.dae"/>
-      </geometry>
-    </collision>
     <visual name="hokuyo_visual">
-      <origin xyz="-0.0225 0 -0.02" rpy="0 0 3.141592654"/>
+      <origin xyz="0 0 -0.015" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://jet_description/meshes/Hokuyo.dae"/>
       </geometry>
     </visual>
     <inertial>
-      <mass value="1e-5" />
-      <origin xyz="-0.0225 0 -0.02" rpy="0 0 3.141592654"/>
-      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+      <mass value="0.25" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
     </inertial>
   </link>
-  
-  <!-- IMU -->
+
+  <joint name="hokuyo_joint" type="fixed">
+    <axis xyz="0 0 0" />
+    <origin xyz="0 -0.12 0.1" rpy="0 0 -1.570796327"/>
+    <parent link="chassis"/>
+    <child link="hokuyo"/>
+  </joint>
+
+
+  <!--............................IMU................................--> 
   <link name="IMU_link">
-    <collision name="collision">
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <mesh filename="package://jet_description/meshes/IMU.dae"/>
-      </geometry>
-    </collision>
     <visual name="IMU_visual">
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
@@ -259,64 +225,30 @@
       <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
     </inertial>
   </link>
-   
-
-<!--........................JOINTS........................-->
-
-  <!-- Left Wheel Joint -->
-  <joint type="continuous" name="left_wheel_joint">
-    <origin xyz="0.15 -0.075 0.02" rpy="0 0 0"/>
-    <child link="left_wheel"/>
+ 
+  <joint name="imu_joint" type="fixed">
+    <axis xyz="0 0 0"/>
+    <origin xyz="0 0 0.0525" rpy="0 0 0"/>
     <parent link="chassis"/>
-    <axis xyz="1 0 0" rpy="0 0 0"/>
-    <limit effort="100" velocity="100"/>
-    <joint_properties damping="1.0" friction="1.0"/>
+    <child link="IMU_link"/>
   </joint>
-
-
-  <!-- Right Wheel Joint -->
-  <joint type="continuous" name="right_wheel_joint">
-    <origin xyz="-0.15 -0.075 0.02" rpy="0 0 0"/>
-    <child link="right_wheel"/>
-    <parent link="chassis"/>
-    <axis xyz="1 0 0" rpy="0 0 0"/>
-    <limit effort="100" velocity="100"/>
-    <joint_properties damping="1.0" friction="1.0"/>
-  </joint>
-
-
-  <!-- Caster Link Joint -->
-  <joint type="continuous" name="caster_joint">
-    <origin xyz="0 0.1 0.005" rpy="0 0 0"/>
-    <child link="caster_link"/>
-    <parent link="chassis"/>
-    <axis xyz="0 0 1" rpy="0 0 0"/>
-    <limit effort="100" velocity="100"/>
-    <joint_properties damping="0.0" friction="0.0"/>
-  </joint>
-
-
-  <!-- Caster Wheel Joint -->
-  <joint type="continuous" name="caster_turn">
-    <origin xyz="0 0.02 -0.0375" rpy="0 0 0"/>
-    <child link="caster_wheel"/>
-    <parent link="caster_link"/>
-    <axis xyz="1 0 0" rpy="0 0 0"/>
-    <limit effort="100" velocity="100"/>
-    <joint_properties damping="0.0" friction="0.0"/>
-  </joint>
-
-
-  <!-- Camera_Joint -->
-  <joint name="camera_joint" type="fixed">
-    <axis xyz="0 0 0" rpy="0 0 0" />
-    <origin xyz="0 -0.145 0.025" rpy="0 0 -1.570796327"/>
-    <parent link="chassis"/>
-    <child link="camera"/>
-  </joint>
-
-
-  <!-- Sonar_1_Joint --> 
+ 
+  
+  <!--............................Sonar_Sensor_1................................-->
+  <link name="sonar1_link">
+    <visual name="sonar1_visual">
+      <origin xyz="0 0 0" rpy="0 0 -1.570796327"/>
+      <geometry>
+        <mesh filename="package://jet_description/meshes/Sonar_1.dae"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+ 
   <joint name="sonar1_joint" type="fixed">
     <axis xyz="0 0 0" rpy="0 0 0" />
       <origin xyz="-0.0695 -0.13747 0.06" rpy="0 0 -1.745329252"/>
@@ -325,16 +257,44 @@
   </joint>
 
 
-  <!-- Sonar_2_Joint --> 
+  <!--............................Sonar_Sensor_2................................--> 
+  <link name="sonar2_link">
+    <visual name="sonar2_visual">
+      <origin xyz="0 0 0" rpy="0 0 -1.570796327"/>
+      <geometry>
+        <mesh filename="package://jet_description/meshes/Sonar_2.dae"/>
+      </geometry>      
+    </visual>
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
   <joint name="sonar2_joint" type="fixed">
     <axis xyz="0 0 0" rpy="0 0 0" />
       <origin xyz="0.0695 -0.13747 0.06" rpy="0 0 -1.396263402"/>
       <parent link="chassis"/>
       <child link="sonar2_link"/>
   </joint>
+ 
+  
+  <!--............................Sonar_Sensor_3................................-->
+  <link name="sonar3_link">
+    <visual name="sonar2_visual">
+      <origin xyz="0 0 0" rpy="0 0 -1.570796327"/>
+      <geometry>
+        <mesh filename="package://jet_description/meshes/Sonar_3.dae"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
 
-
-  <!-- Sonar_3_Joint -->
   <joint name="sonar3_joint" type="fixed">
     <axis xyz="0 0 0" rpy="0 0 0" />
       <origin xyz="0 0.145 0.06" rpy="0 0 1.570796327"/>
@@ -342,48 +302,5 @@
       <child link="sonar3_link"/>
   </joint>
 
-
-  <!-- Hokuyo_Joint -->
-  <joint name="hokuyo_joint" type="fixed">
-    <axis xyz="0 0 0" />
-    <origin xyz="0 -0.13 0.105" rpy="0 0 -1.570796327"/>
-    <parent link="chassis"/>
-    <child link="hokuyo"/>
-  </joint>
-
-
-  <!-- IMU_Joint -->  
-  <joint name="imu_joint" type="fixed">
-    <axis xyz="0 0 0"/>
-    <origin xyz="0 0 0.0525" rpy="0 0 1.570796327"/>
-    <parent link="chassis"/>
-    <child link="IMU_link"/>
-  </joint>
-
-
-<!-- .............Mario's STUFF................. -->
-<!--
-  <transmission name="tran_left_wheel">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="left_wheel_joint">
-      <hardwareInterface>VelocityJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="motor_left">
-      <hardwareInterface>VelocityJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-
-  <transmission name="tran_right_wheel">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="right_wheel_joint">
-      <hardwareInterface>VelocityJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="motor_right">
-      <hardwareInterface>VelocityJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
--->
 
 </robot>

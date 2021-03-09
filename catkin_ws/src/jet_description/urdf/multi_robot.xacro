@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<robot name="Jet" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find jet_description)/urdf/multi_robot.gazebo"/>
+  <xacro:include filename="$(find jet_description)/urdf/material_color.xacro"/>
+
+  <!--........................Dummy Link.............................-->
+  <link name="Main_Frame">
+   </link>
+   <joint name="Main_Frame_Joint" type="fixed">
+     <parent link="Main_Frame"/>
+     <child link="chassis"/>
+     <origin xyz="0 0 0" rpy="0 0 0"/>
+   </joint>
+
+  <!--.........................Chassis...............................-->
+  <link name='chassis'>
+    <collision name='collision'>
+      <origin xyz="0 0 0.025" rpy="0 0 1.570796327"/>
+      <geometry>
+        <box size=".3 .2 .05"/>
+      </geometry>
+    </collision>
+    <visual name='chassis_visual'>
+      <origin xyz="0 0 0.025" rpy="0 0 1.570796327"/>
+      <geometry>
+        <box size=".3 .2 .05"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+    <inertial>
+      <mass value="2.5"/>
+      <origin xyz="0 0 0" rpy=" 0 0 0"/>
+      <inertia
+          ixx="27.08e-3" ixy="0" ixz="0"
+          iyy="8.85e-3" iyz="0"
+          izz="19.27e-3"/>
+    </inertial>
+  </link>  
+  
+  <!--................................Arrow...................................-->
+  <link name="arrow">
+    <visual name="arrow_visual">
+      <origin xyz="0 0 0" rpy="0 0 1.570796327"/>
+      <geometry>
+        <mesh filename="package://jet_description/meshes/Arrow.dae"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.0"/>
+      <inertia
+        ixx="0" ixy="0.0" ixz="0.0"
+        iyy="0" iyz="0.0"
+        izz="0"/>
+    </inertial>
+  </link>  
+
+  <joint name="arrow_joint" type="fixed">
+    <axis xyz="0 0 0"/>
+    <origin xyz="0 -0.035 0.05" rpy="0 0 1.570796327"/>
+    <parent link="chassis"/>
+    <child link="arrow"/>
+  </joint> 
+  
+  
+  <!--..............................Left Wheel..................................-->
+  <link name="left_wheel">
+    <collision name="collision">
+      <origin xyz="0 0 0" rpy="0 1.570796327 0"/>
+      <geometry>
+        <cylinder radius="0.075" length="0.03"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.75"/>
+      <inertia
+        ixx="3.51e-4" ixy="0.0" ixz="0.0"
+        iyy="1.11e-3" iyz="0.0"
+        izz="1.11e-3"/>
+    </inertial>
+  </link>
+
+  <joint type="continuous" name="left_wheel_joint">
+    <origin xyz="0.15 -0.1 0.02" rpy="0 0 0"/>
+    <child link="left_wheel"/>
+    <parent link="chassis"/>
+    <axis xyz="1 0 0" rpy="0 0 0"/>
+  </joint>
+
+
+  <!--..............................Right Wheel..................................-->
+  <link name="right_wheel">
+    <collision name="collision">
+      <origin xyz="0 0 0" rpy="0 1.570796327 0"/>
+      <geometry>
+        <cylinder radius="0.075" length="0.03"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.75"/>
+      <inertia
+        ixx="3.51e-4" ixy="0.0" ixz="0.0"
+        iyy="1.11e-3" iyz="0.0"
+        izz="1.11e-3"/>
+    </inertial>
+  </link>
+
+  <joint type="continuous" name="right_wheel_joint">
+    <origin xyz="-0.15 -0.1 0.02" rpy="0 0 0"/>
+    <child link="right_wheel"/>
+    <parent link="chassis"/>
+    <axis xyz="1 0 0" rpy="0 0 0"/>
+  </joint>
+
+
+  <!--..............................Caster Link...............................-->
+  <link name="caster_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.5"/>
+      <inertia
+        ixx="3.80e-4" ixy="0.0" ixz="0.0"
+        iyy="4.08e-4" iyz="0.0"
+        izz="3.80e-4"/>
+    </inertial>
+  </link>
+  
+  <joint type="continuous" name="caster_joint">
+    <origin xyz="0 0.1 0.005" rpy="0 0 0"/>
+    <child link="caster_link"/>
+    <parent link="chassis"/>
+    <axis xyz="0 0 1" rpy="0 0 0"/>
+  </joint>
+  
+  
+  <!--..............................Caster Wheel..................................-->
+  <link name="caster_wheel">
+    <collision name="collision">
+      <origin xyz="0 0 0" rpy="0 1.570796327 0"/>
+      <geometry>
+        <cylinder radius="0.0225" length="0.015"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.25"/>
+      <inertia
+        ixx="1.05e-5" ixy="0.0" ixz="0.0"
+        iyy="3.63e-5" iyz="0.0"
+        izz="3.63e-5"/>
+    </inertial>
+  </link>
+
+  <joint type="continuous" name="caster_turn">
+    <origin xyz="0 0.02 -0.0375" rpy="0 0 0"/>
+    <child link="caster_wheel"/>
+    <parent link="caster_link"/>
+    <axis xyz="1 0 0" rpy="0 0 0"/>
+  </joint>
+
+
+  <!--................................Camera..................................-->
+  <link name="camera">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.1" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+  </link>
+
+  <joint name="camera_joint" type="fixed">
+    <axis xyz="0 0 0" rpy="0 0 0" />
+    <origin xyz="0 -0.145 0.025" rpy="0 0 -1.570796327"/>
+    <parent link="chassis"/>
+    <child link="camera"/>
+  </joint>
+
+
+  <!--............................Liadar................................-->
+  <link name="hokuyo">
+    <inertial>
+      <mass value="0.25" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+  </link>
+
+  <joint name="hokuyo_joint" type="fixed">
+    <axis xyz="0 0 0" />
+    <origin xyz="0 -0.12 0.1" rpy="0 0 -1.570796327"/>
+    <parent link="chassis"/>
+    <child link="hokuyo"/>
+  </joint>
+
+
+  <!--............................IMU................................--> 
+  <link name="IMU_link">
+   
+    <inertial>
+      <mass value="1e-6"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+  </link>
+ 
+  <joint name="imu_joint" type="fixed">
+    <axis xyz="0 0 0"/>
+    <origin xyz="0 0 0.0525" rpy="0 0 0"/>
+    <parent link="chassis"/>
+    <child link="IMU_link"/>
+  </joint>
+
+
+</robot>

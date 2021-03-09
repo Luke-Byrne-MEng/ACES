@@ -1,8 +1,8 @@
-# Install script for directory: /home/shabkhezk/ACES/catkin_ws/src/jet_navigation
+# Install script for directory: /home/kshabkhez/ACES/catkin_ws/src/jet_navigation
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/shabkhezk/ACES/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/kshabkhez/ACES/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/shabkhezk/ACES/catkin_ws/build/jet_navigation/catkin_generated/installspace/jet_navigation.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/kshabkhez/ACES/catkin_ws/build/jet_navigation/catkin_generated/installspace/jet_navigation.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jet_navigation/cmake" TYPE FILE FILES
-    "/home/shabkhezk/ACES/catkin_ws/build/jet_navigation/catkin_generated/installspace/jet_navigationConfig.cmake"
-    "/home/shabkhezk/ACES/catkin_ws/build/jet_navigation/catkin_generated/installspace/jet_navigationConfig-version.cmake"
+    "/home/kshabkhez/ACES/catkin_ws/build/jet_navigation/catkin_generated/installspace/jet_navigationConfig.cmake"
+    "/home/kshabkhez/ACES/catkin_ws/build/jet_navigation/catkin_generated/installspace/jet_navigationConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jet_navigation" TYPE FILE FILES "/home/shabkhezk/ACES/catkin_ws/src/jet_navigation/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jet_navigation" TYPE FILE FILES "/home/kshabkhez/ACES/catkin_ws/src/jet_navigation/package.xml")
 endif()
 

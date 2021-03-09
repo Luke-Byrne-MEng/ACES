@@ -1,4 +1,4 @@
-prefix=/home/shabkhezk/ACES/catkin_ws/devel
+prefix=/home/kshabkhez/ACES/catkin_ws/devel
 
 Name: jet_gazebo
 Description: Description of jet_gazebo

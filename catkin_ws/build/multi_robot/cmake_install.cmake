@@ -1,8 +1,8 @@
-# Install script for directory: /home/shabkhezk/ACES/catkin_ws/src/multi_robot
+# Install script for directory: /home/kshabkhez/ACES/catkin_ws/src/multi_robot
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/shabkhezk/ACES/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/kshabkhez/ACES/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/shabkhezk/ACES/catkin_ws/build/multi_robot/catkin_generated/installspace/multi_robot.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/kshabkhez/ACES/catkin_ws/build/multi_robot/catkin_generated/installspace/multi_robot.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/multi_robot/cmake" TYPE FILE FILES
-    "/home/shabkhezk/ACES/catkin_ws/build/multi_robot/catkin_generated/installspace/multi_robotConfig.cmake"
-    "/home/shabkhezk/ACES/catkin_ws/build/multi_robot/catkin_generated/installspace/multi_robotConfig-version.cmake"
+    "/home/kshabkhez/ACES/catkin_ws/build/multi_robot/catkin_generated/installspace/multi_robotConfig.cmake"
+    "/home/kshabkhez/ACES/catkin_ws/build/multi_robot/catkin_generated/installspace/multi_robotConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/multi_robot" TYPE FILE FILES "/home/shabkhezk/ACES/catkin_ws/src/multi_robot/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/multi_robot" TYPE FILE FILES "/home/kshabkhez/ACES/catkin_ws/src/multi_robot/package.xml")
 endif()
 
