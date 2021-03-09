@@ -13,7 +13,7 @@ This project has been developed and optimised for **Ubuntu 20.04** with **ROS No
 - [Dependencies](#2-dependencies)
 - [Installation](#3-installation)
 - [Configuration](#4-configuration)
-- [Ros Topics & Services](#5-ros-topics-&-services)
+- [Ros Topics & Services](#5-ros-topics--services)
 - [Running](#6-running)
 
 
