@@ -1,8 +1,8 @@
-# 4. Configuration
-## 4.1 ROS Launch File Parameters
+# Configuration
+## 1 ROS Launch File Parameters
 Each of the ROS packages used in this project have their own parameters within the provided launch files. These launch files work as-is, but further configuration is possible. Please see the respective ROS wiki pages for each package, for a more complete discription of their configuration and operation.
 
-### 4.1.1 orb_slam_2_ros
+### 1.1 orb_slam_2_ros
 - **load_map**: Bool. If set to true, the node will try to load the map provided with map_file at startup.
 - **map_file**: String. The name of the file the map is loaded from.
 - **voc_file**: String. The location of config vocanulary file mentioned above.
@@ -14,7 +14,7 @@ Each of the ROS packages used in this project have their own parameters within t
 - **load_calibration_from_cam**: Bool. If true, camera calibration is read from a `camera_info` topic. Otherwise it is read from launch file params.
 
 
-### 4.1.2 octomap_server
+### 1.2 octomap_server
 - **frame_id**: String. Static global frame in which the map will be published. A transform from sensor data to this frame needs to be available when dynamically building maps. 
 - **resolution**: Float. Resolution in meter for the map when starting with an empty map. Otherwise the loaded file's resolution is used. 
 - **base_frame_id**: String. The robot's base frame in which ground plane detection is performed (if enabled) 
@@ -32,7 +32,7 @@ Each of the ROS packages used in this project have their own parameters within t
 - **occupancy_[min|max]_z**: Float. Minimum and maximum height of occupied cells to be consider in the final map. This ignores all occupied voxels outside of the interval when sending out visualizations and collision maps, but will not affect the actual octomap representation. 
 
 
-### 4.1.3 explore_lite
+### 1.3 explore_lite
 - **robot_base_frame**: String. The name of the base frame of the robot. This is used for determining robot position on map. Mandatory. 
 - **costmap_topic**: String. Specifies topic of source nav_msgs/OccupancyGrid. Mandatory. 
 - **costmap_updates_topic**: String. Specifies topic of source map_msgs/OccupancyGridUpdate. Not necessary if source of map is always publishing full updates, i.e. does not provide this topic. 
@@ -45,7 +45,7 @@ Each of the ROS packages used in this project have their own parameters within t
 - **transform_tolerance**: Double. Transform tolerance to use when transforming robot pose. 
 - **min_frontier_size**: Double. Minimum size of the frontier to consider the frontier as the exploration goal. In meters. 
 
-### 4.1.4 move_base
+### 1.4 move_base
 - **base_global_planner** String. The name of the plugin for the global planner to use with move_base, see pluginlib documentation for more details on plugins. This plugin must adhere to the nav_core::BaseGlobalPlanner interface specified in the nav_core package. (1.0 series default: "NavfnROS") 
 - **base_local_planner** String. The name of the plugin for the local planner to use with move_base see pluginlib documentation for more details on plugins. This plugin must adhere to the nav_core::BaseLocalPlanner interface specified in the nav_core package. (1.0 series default: "TrajectoryPlannerROS") 
 - **recovery_behaviors** List. A list of recovery behavior plugins to use with move_base, see pluginlib documentation for more details on plugins. These behaviors will be run when move_base fails to find a valid plan in the order that they are specified. After each behavior completes, move_base will attempt to make a plan. If planning is successful, move_base will continue normal operation. Otherwise, the next recovery behavior in the list will be executed. These plugins must adhere to the nav_core::RecoveryBehavior interface specified in the nav_core package. (1.0 series default: [{name: conservative_reset, type: ClearCostmapRecovery}, {name: rotate_recovery, type: RotateRecovery}, {name: aggressive_reset, type: ClearCostmapRecovery}]). Note: For the default parameters, the aggressive_reset behavior will clear out to a distance of 4 * ~/local_costmap/circumscribed_radius. 
@@ -61,7 +61,7 @@ Each of the ROS packages used in this project have their own parameters within t
 - **planner_frequency** Double. The rate in Hz at which to run the global planning loop. If the frequency is set to 0.0, the global planner will only run when a new goal is received or the local planner reports that its path is blocked. New in navigation 1.6.0 
 - **max_planning_retries** Int. How many times to allow for planning retries before executing recovery behaviors. A value of -1.0 corresponds to an infinite retries.
 
-### 4.1.5 map_merge_3d (also called map_merge)
+### 1.5 map_merge_3d (also called map_merge)
 - **robot_map_topic** String. Name of robot map topic without namespaces (last component of the topic name). Only topics with this name are considered when looking for new maps to merge. This topics may be subject to further filtering (see below). 
 - **robot_namespace** String. Fixed part of the robot map topic. You can employ this parameter to further limit which topics are considered during dynamic lookup for robots. Only topics which contain (anywhere) this string are considered for lookup. Unlike robot_map_topic you are not limited by namespace logic. Topics are filtered using text-based search. Therefore robot_namespace does not need to be a ROS namespace, but it can contain slashes etc. This string must be a common part of all maps topic name (all robots for which you want to merge map). 
 - **merged_map_topic** String. Topic name where merged map is published. 
@@ -87,4 +87,4 @@ Each of the ROS packages used in this project have their own parameters within t
 - **confidence_threshold** Double. Minimum confidence in the pair-wise transform estimate to be included in the map-merging graph. Pair-wise transformations with lower confidence are not considered when computing global transforms. Increase this value if you are having problems with invalid transforms being estimated. The confidence value is computed as a reciprocal of Euclidean distance between transformed maps. 
 - **output_resolution** Double. Resolution of the merged global map. 
 
-## 4.2 Gazebo configuration
+## 2 Gazebo configuration
