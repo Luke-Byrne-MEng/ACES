@@ -1,4 +1,8 @@
 # Configuration
+Configuration of the ACES system, and Gazebo simulation, is done via parameters specified in the launch files.
+This file lists and describes these parameters. Please see the relative wiki pages for each ROS packge for a more complete explination of their configuraiton and operation:
+
+
 ## 1 ROS Launch File Parameters
 Each of the ROS packages used in this project have their own parameters within the provided launch files. These launch files work as-is, but further configuration is possible. Please see the respective ROS wiki pages for each package, for a more complete discription of their configuration and operation.
 
