@@ -3,8 +3,8 @@ Orange=$'\e[0;33m'
 Red=$'\e[0;31m'
 Green=$'\e[0;32m'
 
-echo -e "${Green}This script installs the dependences and requrements to run the ACES simulations."
-echo -e "${Green}This script was written for Ubuntu 20, and ROS noetic."
+echo -e "${Green}This script installs the dependences and requrements to run the ACES system and simulations."
+echo -e "${Green}This script was written for Ubuntu 20.04, and ROS noetic."
 echo -e "${Green}Please exit, and edit this script if using different versions of Ubuntu / ROS."
 sleep 15
 echo -e ""
@@ -21,9 +21,10 @@ echo -e "${Orange}Installing the ORB_SLAM2 ROS wrapper, explore_lite, multirobot
 echo -e ""
 sleep 4
 sudo apt install -y ros-noetic-teleop-twist-keyboard ros-noetic-octomap ros-noetic-multirobot-map-merge ros-noetic-explore-lite ros-noetic-navigation
-cd src
-git clone https://github.com/appliedAI-Initiative/orb_slam_2_ros.git
-git clone https://github.com/hrnr/map-merge
-echo "catkin_package()" | sudo tee -a map-merge/map_merge_3d/CMakeLists.txt
-cd ../..
 cp -r .gazebo ~
+cd src
+git clone https://github.com/hrnr/map-merge
+git clone https://github.com/appliedAI-Initiative/orb_slam_2_ros.git
+echo "catkin_package()" | sudo tee -a map-merge/map_merge_3d/CMakeLists.txt
+cd ..
+echo -e "${Green}Installation complete. Please run catkin_make to compile the ACES components"
