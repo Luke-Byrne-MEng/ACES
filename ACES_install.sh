@@ -3,7 +3,7 @@ Orange=$'\e[0;33m'
 Red=$'\e[0;31m'
 Green=$'\e[0;32m'
 
-echo -e "${Green}This script installs the dependences and requrements to run the ACES simulations."
+echo -e "${Green}This script installs the dependences and requrements to run the ACES system and simulations."
 echo -e "${Green}This script was written for Ubuntu 20.04, and ROS noetic."
 echo -e "${Green}Please exit, and edit this script if using different versions of Ubuntu / ROS."
 sleep 15
@@ -17,8 +17,14 @@ sudo apt install -y python3-dev python3-pip python3-opencv libgl1-mesa-dev libgl
 sudo python3 -mpip install numpy pyopengl Pillow pybind11
 echo -e ""
 echo -e ""
-echo -e "${Orange}Installing explore_lite, move-base, and octomap_server${NC}"
+echo -e "${Orange}Installing the ORB_SLAM2 ROS wrapper, explore_lite, multirobot_map_merge, the navigation stack, and octomap_server${NC}"
 echo -e ""
-sleep 2
-sudo apt install -y ros-noetic-teleop-twist-keyboard ros-noetic-octomap ros-noetic-explore-lite ros-noetic-move-base
+sleep 4
+sudo apt install -y ros-noetic-teleop-twist-keyboard ros-noetic-octomap ros-noetic-multirobot-map-merge ros-noetic-explore-lite ros-noetic-navigation
 cp -r .gazebo ~
+cd src
+git clone https://github.com/hrnr/map-merge
+git clone https://github.com/appliedAI-Initiative/orb_slam_2_ros.git
+echo "catkin_package()" | sudo tee -a map-merge/map_merge_3d/CMakeLists.txt
+cd ..
+echo -e "${Green}Installation complete. Please run catkin_make to compile the ACES components"
