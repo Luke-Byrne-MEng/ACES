@@ -18,7 +18,10 @@
   <include file="$(find jet_slam)/launch/gmapping.launch"> </include>
   
   <!-- Move Base Node -->
-  <include file="$(find jet_navigation)/launch/move_base.launch"> </include>
+  <arg name="speed" default="0.5"/> 
+  <include file="$(find jet_navigation)/launch/move_base.launch">
+    <arg name="speed" value="$(arg speed)" />
+  </include>
   
   <!-- Explore Lite Node -->
   <node pkg="explore_lite" type="explore" respawn="true" name="explore" output="screen">
