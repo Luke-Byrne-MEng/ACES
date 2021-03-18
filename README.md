@@ -67,7 +67,10 @@ cd ACES
 bash ACES_install_melodic.sh
 caktin_make
 ```
-
+Please remember to source your setup.bash after install:
+```
+source ./devel/setup.bash
+```
 
 # 4. Configuration
 Configuration of the ACES system, and of the Gazebo simulation is done via parameters in the ACES launch files. Although the system should work as-is, it is possible to edit these parameters to change system behaviour. A complete list, and discription, of system parameters is available in the [ACES_config.md](https://github.com/Luke-Byrne-uni/ACES/blob/main/ACES_config.md) file.
@@ -84,14 +87,15 @@ Configuration of the ACES system, and of the Gazebo simulation is done via param
 
 
 # 6. Running
-After sourcing your setup.bash, by cd-ing into your catkin_ws and doing:
+By default the simulations spawn 1 robot, moving at 0.5m/s
+However, you may increase the number of robots, and speed of robots by appending:
 ```
-source devel/setup.bash
+speed:=
+robots:=
 ```
-you can launch one of the simulations using:
+to the end of the command. For example:
 ```
- - roslaunch multi_robot Office_with_3_robots.launch
- - roslaunch multi_robot SLAM.launch
+roslaunch multi_robot Office.launch speed:=0.1 robots:=3
 ```
 
 
