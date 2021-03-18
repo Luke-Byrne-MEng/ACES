@@ -20,7 +20,7 @@ echo -e ""
 echo -e "${Orange}Installing the ORB_SLAM2 ROS wrapper, explore_lite, multirobot_map_merge, the navigation stack, and octomap_server${NC}"
 echo -e ""
 sleep 4
-sudo apt install -y ros-noetic-teleop-twist-keyboard ros-noetic-octomap ros-noetic-multirobot-map-merge ros-noetic-explore-lite ros-noetic-navigation
+sudo apt install -y ros-noetic-teleop-twist-keyboard ros-noetic-multirobot-map-merge ros-noetic-explore-lite ros-noetic-navigation ros-noetic-octomap ros-noetic-octomap-mapping ros-noetic-octomap-msgs ros-noetic-octomap-ros ros-noetic-octomap-rviz-plugins ros-noetic-octomap-server
 cp -r .gazebo ~
 cd src
 git clone https://github.com/hrnr/map-merge
