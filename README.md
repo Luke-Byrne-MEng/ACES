@@ -64,7 +64,7 @@ git clone https://github.com/Luke-Byrne-uni/ACES.git
 Then run the install script, and compile with catkin_make:
 ```
 cd ACES
-bash ACES_install.sh
+bash ACES_install_melodic.sh
 caktin_make
 ```
 
