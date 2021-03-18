@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 <arg name="speed" /> 
+<arg name="robots" /> 
 
   <!-- No namespace here as we will share this description. 
        Access with slash at the beginning -->
@@ -41,33 +42,37 @@
   <!-- BEGIN ROBOTS-->
   
   <!-- ROBOT 1-->
-  <group ns="robot1">
-  <param name="tf_prefix" value="robot1_tf" type="str" />
-    <include file="$(find multi_robot)/launch/robot_setup.launch" >
-      <arg name="init_pose" value="-x 0.5 -y -4 -z 0 -R 0 -P 0 -Y 3.141592654" />
-      <arg name="robot_name"  value="Robot1" />
-      <arg name="speed" value="$(arg speed)" />
-    </include>
+  <group if="$(eval 1 if arg('robots')>0 else False )">
+    <group ns="robot1">
+      <include file="$(find multi_robot)/launch/robot_setup.launch" >
+        <param name="tf_prefix" type="string" value="/robot1" />
+        <arg name="init_pose" value="-x 0.5 -y -4 -z 0 -R 0 -P 0 -Y 3.141592654" />
+        <arg name="robot_name"  value="Robot1" />
+        <arg name="speed" value="$(arg speed)" />
+      </include>
+    </group>
   </group>
 
   <!-- ROBOT 2-->
-  <group ns="robot2">
-    <param name="tf_prefix" value="robot2_tf" />
-    <include file="$(find multi_robot)/launch/robot_setup.launch" >
-      <arg name="init_pose" value="-x -7.5 -y 3 -z 0 -R 0 -P 0 -Y 0" />
-      <arg name="robot_name"  value="Robot2" />
-      <arg name="speed" value="$(arg speed)" />
-    </include>
+  <group if="$(eval 1 if arg('robots')>1 else False )">
+    <group ns="robot2">
+      <include file="$(find multi_robot)/launch/robot_setup.launch" >
+        <arg name="init_pose" value="-x -7.5 -y 3 -z 0 -R 0 -P 0 -Y 0" />
+        <arg name="robot_name"  value="Robot2" />
+        <arg name="speed" value="$(arg speed)" />
+      </include>
+    </group>
   </group>
 
   <!-- ROBOT 3-->
-  <group ns="robot3">
-    <param name="tf_prefix" value="robot3_tf" />
-    <include file="$(find multi_robot)/launch/robot_setup.launch" >
-      <arg name="init_pose" value="-x 7.5 -y 3 -z 0 -R 0 -P 0 -Y 0" />
-      <arg name="robot_name"  value="Robot3" />
-      <arg name="speed" value="$(arg speed)" />
-    </include>
+  <group if="$(eval 1 if arg('robots')>2 else False )">
+    <group ns="robot3">
+      <include file="$(find multi_robot)/launch/robot_setup.launch" >
+        <arg name="init_pose" value="-x 7.5 -y 3 -z 0 -R 0 -P 0 -Y 0" />
+        <arg name="robot_name"  value="Robot3" />
+        <arg name="speed" value="$(arg speed)" />
+      </include>
+    </group>
   </group>
   
 </launch>
