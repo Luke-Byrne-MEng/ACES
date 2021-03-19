@@ -4,7 +4,7 @@
 
   <!-- start world -->
   <node name="gazebo" pkg="gazebo_ros" type="gazebo" 
-   args="$(find jet_gazebo)/worlds/Office.world" respawn="false" output="screen" />
+   args="$(find jet_gazebo)/worlds/Textured.world" respawn="false" output="screen" />
 
   <!-- start gui -->
   <!--node name="gazebo_gui" pkg="gazebo" type="gui" respawn="false" output="screen"/>-->

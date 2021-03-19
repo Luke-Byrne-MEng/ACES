@@ -7,7 +7,7 @@
 
   <!-- startup simulated world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find jet_gazebo)/worlds/Warehouse.world"/>
+    <arg name="world_name" value="$(find jet_gazebo)/worlds/Textured.world"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
@@ -20,6 +20,7 @@
 <!-- Spawn a robot into Gazebo -->
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model jet" />
 
+  <!--<include file="$(find jet_control)/launch/jet_control.launch"/>-->
 
 
 </launch>

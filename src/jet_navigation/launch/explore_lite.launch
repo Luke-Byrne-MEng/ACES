@@ -3,7 +3,7 @@
 <launch>
 
   <!-- Gazebo World -->
-  <include file="$(find jet_gazebo)/launch/jet_gazebo_Office.launch"> </include>
+  <include file="$(find jet_gazebo)/launch/jet_gazebo_Test.launch"> </include>
   
   <!-- Robot -->
   <param name="robot_description" command="$(find xacro)/xacro '$(find jet_description)/urdf/jet.xacro'"/>
@@ -18,10 +18,7 @@
   <include file="$(find jet_slam)/launch/gmapping.launch"> </include>
   
   <!-- Move Base Node -->
-  <arg name="speed" default="0.5"/> 
-  <include file="$(find jet_navigation)/launch/move_base.launch">
-    <arg name="speed" value="$(arg speed)" />
-  </include>
+  <include file="$(find jet_navigation)/launch/move_base.launch"> </include>
   
   <!-- Explore Lite Node -->
   <node pkg="explore_lite" type="explore" respawn="true" name="explore" output="screen">

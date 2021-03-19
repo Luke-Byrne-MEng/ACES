@@ -302,5 +302,5 @@
       <child link="sonar3_link"/>
   </joint>
 
-
+  
 </robot>

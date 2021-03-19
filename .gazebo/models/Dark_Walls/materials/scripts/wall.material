@@ -1,0 +1,14 @@
+material wallMat/Diffuse
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture Brick_Texture.jpg
+      }
+    }
+  }
+}
