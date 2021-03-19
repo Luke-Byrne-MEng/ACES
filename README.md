@@ -5,7 +5,7 @@ The ACES (Automated Colaborative Exploration Swarm) system is a comprehensive mu
 
 **This project is still in development, and therefore further documentation will be coming.**
 
-This project has been developed and optimised for **Ubuntu 20.04** with **ROS Noetic**. However it should be simple to edit the install script to use other distros and ROS versions.
+This project has been developed and optimised for **Ubuntu 18.04** with **ROS Melodic**. However it should be simple to edit the install script to use other distros and ROS versions.
 
 ## Table of Contents
 
