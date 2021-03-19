@@ -1,4 +1,4 @@
-prefix=/home/kshabkhez/ACES/catkin_ws/install
+prefix=/home/kamil-shabkhez/ACES/catkin_ws/install
 
 Name: multi_robot
 Description: Description of multi_robot

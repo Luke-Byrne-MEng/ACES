@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <launch>
- 
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
 
     <rosparam file="$(find jet_navigation)/config/costmap_common.yaml" command="load" ns="global_costmap" />
@@ -9,19 +8,22 @@
     <rosparam file="$(find jet_navigation)/config/map_nav/local_costmap.yaml" command="load" />
     <rosparam file="$(find jet_navigation)/config/map_nav/global_costmap.yaml" command="load" />
     
-    <rosparam file="$(find jet_navigation)/config/base_local_planner.yaml" command="load" />
     <rosparam file="$(find jet_navigation)/config/move_base.yaml" command="load" />
-  
-    <param name="base_global_planner" type="string" value="navfn/NavfnROS" />
+    
+    <!-- Local Planner -->
+    <rosparam file="$(find jet_navigation)/config/base_local_planner.yaml" command="load" />
     <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/>
     
+    <!-- Global Planner -->
+    <param name="base_global_planner" type="string" value="navfn/NavfnROS" />    
     <remap from="odom" to="odometry/filtered" />
+    
+    
   </node>
-
 </launch>
 
 <!--
 carrot_planner/CarrotPlanner
 global_planner/GlobalPlanner
-navfn/NavfnROS
+navfn/NavfnROS - Only this one works with Explore Lite
 -->

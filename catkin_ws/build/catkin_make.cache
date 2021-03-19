@@ -1,2 +1,2 @@
 jet_control:jet_description:jet_gazebo:jet_navigation:jet_slam:multi_robot
--DCATKIN_DEVEL_PREFIX=/home/kshabkhez/ACES/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/kshabkhez/ACES/catkin_ws/install -G Unix Makefiles
+-DCATKIN_DEVEL_PREFIX=/home/kamil-shabkhez/ACES/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/kamil-shabkhez/ACES/catkin_ws/install -G Unix Makefiles

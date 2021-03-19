@@ -1,8 +1,8 @@
-# Install script for directory: /home/kshabkhez/ACES/catkin_ws/src/jet_control
+# Install script for directory: /home/kamil-shabkhez/ACES/catkin_ws/src/jet_control
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/kshabkhez/ACES/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/kamil-shabkhez/ACES/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,25 +38,25 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/kshabkhez/ACES/catkin_ws/build/jet_control/catkin_generated/installspace/jet_control.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/kamil-shabkhez/ACES/catkin_ws/build/jet_control/catkin_generated/installspace/jet_control.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jet_control/cmake" TYPE FILE FILES
-    "/home/kshabkhez/ACES/catkin_ws/build/jet_control/catkin_generated/installspace/jet_controlConfig.cmake"
-    "/home/kshabkhez/ACES/catkin_ws/build/jet_control/catkin_generated/installspace/jet_controlConfig-version.cmake"
+    "/home/kamil-shabkhez/ACES/catkin_ws/build/jet_control/catkin_generated/installspace/jet_controlConfig.cmake"
+    "/home/kamil-shabkhez/ACES/catkin_ws/build/jet_control/catkin_generated/installspace/jet_controlConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jet_control" TYPE FILE FILES "/home/kshabkhez/ACES/catkin_ws/src/jet_control/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jet_control" TYPE FILE FILES "/home/kamil-shabkhez/ACES/catkin_ws/src/jet_control/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jet_control" TYPE DIRECTORY FILES "/home/kshabkhez/ACES/catkin_ws/src/jet_control/config")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jet_control" TYPE DIRECTORY FILES "/home/kamil-shabkhez/ACES/catkin_ws/src/jet_control/config")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jet_control" TYPE DIRECTORY FILES "/home/kshabkhez/ACES/catkin_ws/src/jet_control/launch")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jet_control" TYPE DIRECTORY FILES "/home/kamil-shabkhez/ACES/catkin_ws/src/jet_control/launch")
 endif()
 

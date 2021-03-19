@@ -1,4 +1,4 @@
-prefix=/home/kshabkhez/ACES/catkin_ws/install
+prefix=/home/kamil-shabkhez/ACES/catkin_ws/install
 
 Name: jet_slam
 Description: Description of jet_slam

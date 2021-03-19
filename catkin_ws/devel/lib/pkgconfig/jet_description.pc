@@ -1,4 +1,4 @@
-prefix=/home/kshabkhez/ACES/catkin_ws/devel
+prefix=/home/kamil-shabkhez/ACES/catkin_ws/devel
 
 Name: jet_description
 Description: Description of jet_description

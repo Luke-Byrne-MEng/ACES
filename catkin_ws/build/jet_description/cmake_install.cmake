@@ -1,8 +1,8 @@
-# Install script for directory: /home/kshabkhez/ACES/catkin_ws/src/jet_description
+# Install script for directory: /home/kamil-shabkhez/ACES/catkin_ws/src/jet_description
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/kshabkhez/ACES/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/kamil-shabkhez/ACES/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,25 +38,25 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/kshabkhez/ACES/catkin_ws/build/jet_description/catkin_generated/installspace/jet_description.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/kamil-shabkhez/ACES/catkin_ws/build/jet_description/catkin_generated/installspace/jet_description.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jet_description/cmake" TYPE FILE FILES
-    "/home/kshabkhez/ACES/catkin_ws/build/jet_description/catkin_generated/installspace/jet_descriptionConfig.cmake"
-    "/home/kshabkhez/ACES/catkin_ws/build/jet_description/catkin_generated/installspace/jet_descriptionConfig-version.cmake"
+    "/home/kamil-shabkhez/ACES/catkin_ws/build/jet_description/catkin_generated/installspace/jet_descriptionConfig.cmake"
+    "/home/kamil-shabkhez/ACES/catkin_ws/build/jet_description/catkin_generated/installspace/jet_descriptionConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jet_description" TYPE FILE FILES "/home/kshabkhez/ACES/catkin_ws/src/jet_description/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jet_description" TYPE FILE FILES "/home/kamil-shabkhez/ACES/catkin_ws/src/jet_description/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jet_description" TYPE DIRECTORY FILES "/home/kshabkhez/ACES/catkin_ws/src/jet_description/launch")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jet_description" TYPE DIRECTORY FILES "/home/kamil-shabkhez/ACES/catkin_ws/src/jet_description/launch")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jet_description" TYPE DIRECTORY FILES "/home/kshabkhez/ACES/catkin_ws/src/jet_description/urdf")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jet_description" TYPE DIRECTORY FILES "/home/kamil-shabkhez/ACES/catkin_ws/src/jet_description/urdf")
 endif()
 
