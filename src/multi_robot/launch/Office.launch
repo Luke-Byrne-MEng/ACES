@@ -9,7 +9,7 @@
 
   <!-- include our robots -->
   <include file="$(find multi_robot)/launch/robots.launch">
-    <arg name="speed" default="0.5"/> 
+    <arg name="speed" default="0.1"/> 
     <arg name="robots" default="1"/> 
   </include>
   
