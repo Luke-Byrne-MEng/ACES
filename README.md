@@ -87,6 +87,10 @@ Configuration of the ACES system, and of the Gazebo simulation is done via param
 
 
 # 6. Running
+The ACES simulations may be launched by using any of the following commands:
+```
+roslaunch multi_robot Office.launch
+```
 By default the simulations spawn 1 robot, moving at 0.5m/s
 However, you may increase the number of robots, and speed of robots by appending:
 ```
