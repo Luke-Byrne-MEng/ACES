@@ -8,10 +8,10 @@ Paste plugin before the last < /world > (adjust arguments according to the map):
     <init_robot_y>0</init_robot_y>          <!-- y coordinate in meters, optional, default 0 -->
 </plugin>
 
-Install map server
+Install map server:
 sudo apt-get install ros-melodic-map-server
 
-Launch world to be converted
+Launch world to be converted:
 roslaunch jet_gazebo jet_gazebo_Textured.launch
 
 
@@ -21,5 +21,6 @@ rosrun map_server map_saver -f Textured2 /map:=/map2d
 Execute rosservice:
 rosservice call /gazebo_2Dmap_plugin/generate_map
 
+Files ready:
 .pgm & .yaml files are generated in home
 
