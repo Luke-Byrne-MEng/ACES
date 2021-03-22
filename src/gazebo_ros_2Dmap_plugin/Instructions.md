@@ -1,4 +1,4 @@
-Paste plugin before the last </world> (adjust arguments according to the map): 
+Paste plugin before the last < /world > (adjust arguments according to the map): 
 <plugin name='gazebo_occupancy_map' filename='libgazebo_2Dmap_plugin.so'>
     <map_resolution>0.1</map_resolution> <!-- in meters, optional, default 0.1 -->
     <map_height>0.3</map_height>         <!-- in meters, optional, default 0.3 -->
