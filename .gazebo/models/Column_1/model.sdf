@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="Column_1">
+    <static>true</static>
+    <link name="link">
+      <pose>0 0 0.04 0 0 0</pose>
+
+      <collision name="collision">
+        <geometry>
+          <mesh>
+	    <uri>model://Column_1/meshes/Column_1.dae</uri>
+	  </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+	    <uri>model://Column_1/meshes/Column_1.dae</uri>
+	  </mesh>
+        </geometry>
+      </visual>
+
+    </link>
+  </model>
+</sdf>

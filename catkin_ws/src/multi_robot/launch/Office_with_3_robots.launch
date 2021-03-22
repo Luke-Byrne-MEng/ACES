@@ -2,13 +2,14 @@
 <launch>
   <param name="/use_sim_time" value="true" />
 
-  <!-- start world -->
+  <!-- Start World -->
   <node name="gazebo" pkg="gazebo_ros" type="gazebo" 
    args="$(find jet_gazebo)/worlds/Office.world" respawn="false" output="screen" />
 
-  <!-- start gui -->
-  <!--node name="gazebo_gui" pkg="gazebo" type="gui" respawn="false" output="screen"/>-->
-
-  <!-- include our robots -->
+  <!-- Include Robots -->
   <include file="$(find multi_robot)/launch/3_robots.launch"/>
+
+  <!-- Show in Rviz   -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find multi_robot)/rviz/test_2.rviz"/>
+
 </launch>

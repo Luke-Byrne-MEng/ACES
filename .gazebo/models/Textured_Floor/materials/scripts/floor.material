@@ -1,0 +1,15 @@
+material floorMat/Diffuse
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture Checkred_Marble_Texture.jpg
+        scale 0.1 0.1
+      }
+    }
+  }
+}

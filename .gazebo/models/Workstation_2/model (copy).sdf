@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="Workstation_2">
+    <static>true</static>
+    <link name="link">
+      <pose>0 0 0.04 0 0 0</pose>
+      <inertial>
+        <mass>70</mass>
+        <inertia>
+          <ixx>19.27858</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>14.28</iyy>
+          <iyz>0</iyz>
+          <izz>13.23058</izz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <geometry>
+          <mesh>
+	    <uri>model://Workstation_2/meshes/Workstation_2.dae</uri>
+	  </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+	    <uri>model://Workstation_2/meshes/Workstation_2.dae</uri>
+	  </mesh>
+        </geometry>
+      </visual>
+
+    </link>
+  </model>
+</sdf>

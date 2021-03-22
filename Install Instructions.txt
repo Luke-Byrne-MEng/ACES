@@ -1,6 +1,0 @@
-might havo to do catkin_make again. 
-
-1- delete the devel & build
-2- run "catkin_make" in terminal /ACES/catkin_ws
-
-
