@@ -12,4 +12,9 @@
   <!-- Show in Rviz   -->
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find multi_robot)/rviz/test_2.rviz"/>
 
+  <!-- Map Broadcaster -->
+  <node pkg="tf" type="static_transform_publisher" name="robot_1_map_tf_broadcaster" args="0 0 0 0 0 0 /map /robot_1/odom 1000" output="screen"/>
+  <node pkg="tf" type="static_transform_publisher" name="robot_2_map_tf_broadcaster" args="0 0 0 0 0 0 /map /robot_2/odom 1000" output="screen"/>
+  <node pkg="tf" type="static_transform_publisher" name="robot_3_map_tf_broadcaster" args="0 0 0 0 0 0 /map /robot_3/odom 1000" output="screen"/>
+
 </launch>

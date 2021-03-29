@@ -1,2 +1,2 @@
-jet_control:jet_description:jet_gazebo:jet_navigation:jet_slam:m-explore/explore:m-explore/map_merge:map-merge/map_merge_3d:multi_robot:orb_slam_2_ros
+jet_control:jet_description:jet_gazebo:jet_navigation:jet_slam:multi_robot
 -DCATKIN_DEVEL_PREFIX=/home/kamil-shabkhez/ACES/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/kamil-shabkhez/ACES/catkin_ws/install -G Unix Makefiles

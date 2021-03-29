@@ -5,8 +5,8 @@
 
     <!-- MoveBase Node -->
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
-      <rosparam file="$(find jet_navigation)/config/costmap_common.yaml" command="load" ns="global_costmap" />
-      <rosparam file="$(find jet_navigation)/config/costmap_common.yaml" command="load" ns="local_costmap" />    
+      <rosparam file="$(find multi_robot)/config/$(arg namespace)_costmap_common.yaml" command="load" ns="global_costmap" />
+      <rosparam file="$(find multi_robot)/config/$(arg namespace)_costmap_common.yaml" command="load" ns="local_costmap" />    
       <rosparam file="$(find jet_navigation)/config/map_nav/local_costmap.yaml" command="load" />
       <rosparam file="$(find jet_navigation)/config/map_nav/global_costmap.yaml" command="load" />    
       <rosparam file="$(find jet_navigation)/config/move_base.yaml" command="load" />   
@@ -20,7 +20,7 @@
       <param name="local_costmap/global_frame" value="$(arg namespace)/map"/>
       <param name="local_costmap/robot_base_frame" value="$(arg namespace)/Main_Frame"/>
       <remap from="cmd_vel" 							     	to="/$(arg namespace)/cmd_vel"/>
-      <remap from="odom" 							     	to="/$(arg namespace)/odom"/>
+      <remap from="odom" 							     	to="/$(arg namespace)/odometry/filtered"/>
       <remap from="scan" 							     	to="/$(arg namespace)/laser/scan"/>
       <remap from="/move_base/NavfnROS/plan"                              		to="/$(arg namespace)/move_base/NavfnROS/plan" />
       <remap from="/move_base/TrajectoryPlannerROS/cost_cloud"                    	to="/$(arg namespace)/move_base/TrajectoryPlannerROS/cost_cloud" />
@@ -57,7 +57,7 @@
       <remap from="/move_base/result"                                                	to="/$(arg namespace)/move_base/result" />
       <remap from="/move_base/status"                                                	to="/$(arg namespace)/move_base/status" />
       <remap from="/move_base_simple/goal"						to="/$(arg namespace)/move_base_simple/goal" />
-      <remap from="map" 								to="/$(arg namespace)/map" />        
+      <!--<remap from="map" 								to="/$(arg namespace)/map" />-->        
     </node>
 
 </launch>

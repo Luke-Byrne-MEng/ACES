@@ -11,5 +11,11 @@
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
     <param name="publish_frequency" type="double" value="50.0" />
   </node>
+
+  <!-- JOINT STATE --> 
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui"            value="False"/>
+    <param name="robot_description"  textfile= "$(find jet_description)/urdf/multi_robot.xacro" />
+  </node>
     
 </launch>

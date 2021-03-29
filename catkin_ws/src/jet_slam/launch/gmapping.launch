@@ -18,4 +18,20 @@
     <rosparam command="load" file="$(find jet_slam)/config/gmapping_params.yaml" />
   </node>
   
+  <!-- ROBOT DESCRIPTION -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find jet_description)/urdf/jet.xacro'"/>
+
+  <!-- JOINT STATE -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="False"/>
+  </node> 
+
+  <!-- ROBOT STATE --> 
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="50.0" />
+  </node>
+
+  <!-- Show in Rviz   -->
+  <node name="rviz" pkg="rviz" type="rviz"/>
+
 </launch>

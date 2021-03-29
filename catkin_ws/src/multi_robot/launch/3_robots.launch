@@ -4,27 +4,32 @@
        Access with slash at the beginning -->
   <param name="robot_description"
     command="$(find xacro)/xacro $(find jet_description)/urdf/multi_robot.xacro" />
+
   <!-- Map Merge -->
-  <group ns="map_merge">
-    <node pkg="multirobot_map_merge" type="map_merge" respawn="false" name="map_merge" output="screen">
-      <param name="robot_map_topic" value="map"/>
-      <param name="robot_namespace" value="robot_"/>
-      <param name="merged_map_topic" value="map"/>
-      <param name="world_frame" value="world"/>
-      <param name="known_init_poses" value="false"/>
-      <param name="merging_rate" value="0.5"/>
-      <param name="discovery_rate" value="0.05"/>
-      <param name="estimation_rate" value="0.1"/>
-      <param name="estimation_confidence" value="1.0"/>
-    </node>
-  </group>
+  <node pkg="multirobot_map_merge" type="map_merge" respawn="false" name="map_merge" output="screen">
+    <param name="robot_map_topic" value="map"/>
+    <param name="robot_map_updates_topic" value="map_updates"/>
+    <param name="robot_namespace" value="robot_"/>
+    <param name="merged_map_topic" value="map"/>
+    <param name="world_frame" value="/map"/>
+    <param name="known_init_poses" value="false"/>
+    <param name="merging_rate" value="4.0"/>
+    <param name="discovery_rate" value="0.05"/>
+    <param name="estimation_rate" value="0.5"/>
+    <param name="publish_rate" value="1.0"/>
+    <param name="estimation_confidence" value="0.25"/>
+  </node>
+  <!-- Map Broadcaster -->
+  <node pkg="tf" type="static_transform_publisher" name="world_to_robot_1_tf_broadcaster"  args="0 0 0 0 0 0 /map /robot_1/map 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="world_to_robot_2_tf_broadcaster"  args="0 0 0 0 0 0 /map /robot_2/map 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="world_to_robot_3_tf_broadcaster"  args="0 0 0 0 0 0 /map /robot_3/map 100"/>			
 
   <!-- ...........................BEGIN ROBOT 1....................................-->
   <group ns="robot_1">
     <param name="tf_prefix" value="robot_1" />
     <include file="$(find multi_robot)/launch/jet_setup.launch" >
       <arg name="init_pose" value="-x 0.5 -y -4 -z 0 -R 0 -P 0 -Y 3.141592654" />
-      <arg name="robot_name"  value="Robot1" />
+      <arg name="robot_name"  value="robot_1" />
     </include>
     <!-- Gmapping Node -->
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
@@ -35,19 +40,22 @@
       <remap from="map" to="/robot_1/map" />
       <rosparam command="load" file="$(find jet_slam)/config/gmapping_params.yaml" />
     </node>
-    <!-- MoveBase Node -->
+    <!-- MoveBase Node 
     <include file="$(find multi_robot)/config/move_base_setup.launch">
       <arg name="namespace" value="robot_1"/>
-    </include>
+    </include>-->
+    <!-- Explore-Lite Node 
+    <include file="$(find multi_robot)/config/exploration_setup.launch">
+      <arg name="namespace" value="robot_1"/>
+    </include>  -->  
   </group>
-
 
   <!-- ...........................BEGIN ROBOT 2....................................-->
   <group ns="robot_2">
     <param name="tf_prefix" value="robot_2" />
     <include file="$(find multi_robot)/launch/jet_setup.launch" >
       <arg name="init_pose" value="-x -7.5 -y 3 -z 0 -R 0 -P 0 -Y 0" />
-      <arg name="robot_name"  value="Robot2" />
+      <arg name="robot_name"  value="robot_2" />
     </include>
     <!-- Gmapping Node -->
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
@@ -58,10 +66,14 @@
       <remap from="map" to="/robot_2/map" />
       <rosparam command="load" file="$(find jet_slam)/config/gmapping_params.yaml" />
     </node>
-    <!-- MoveBase Node -->
+    <!-- MoveBase Node 
     <include file="$(find multi_robot)/config/move_base_setup.launch">
       <arg name="namespace" value="robot_2"/>
-    </include>
+    </include>-->
+    <!-- Explore-Lite Node 
+    <include file="$(find multi_robot)/config/exploration_setup.launch">
+      <arg name="namespace" value="robot_2"/>
+    </include>-->
   </group>
 
 
@@ -69,8 +81,8 @@
   <group ns="robot_3">
     <param name="tf_prefix" value="robot_3" />
     <include file="$(find multi_robot)/launch/jet_setup.launch" >
-      <arg name="init_pose" value="-x 7.5 -y 3 -z 0 -R 0 -P 0 -Y 0" />
-      <arg name="robot_name"  value="Robot3" />
+      <arg name="init_pose" value="-x 1.5 -y 1.5 -z 0 -R 0 -P 0 -Y 0" />
+      <arg name="robot_name"  value="robot_3" />
     </include>
     <!-- Gmapping Node -->
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
@@ -81,10 +93,14 @@
       <remap from="map" to="/robot_3/map" />
       <rosparam command="load" file="$(find jet_slam)/config/gmapping_params.yaml" />
     </node>
-    <!-- MoveBase Node -->
+    <!-- MoveBase Node 
     <include file="$(find multi_robot)/config/move_base_setup.launch">
       <arg name="namespace" value="robot_3"/>
-    </include>
+    </include>-->
+    <!-- Explore-Lite Node 
+    <include file="$(find multi_robot)/config/exploration_setup.launch">
+      <arg name="namespace" value="robot_3"/>
+    </include>-->
   </group>
   
 </launch>

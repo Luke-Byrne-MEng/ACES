@@ -3,7 +3,7 @@
 <launch>
 
   <!-- Gazebo World -->
-  <include file="$(find jet_gazebo)/launch/jet_gazebo_Test.launch"> </include>
+  <include file="$(find jet_gazebo)/launch/Textured.launch"> </include>
   
   <!-- Robot -->
   <param name="robot_description" command="$(find xacro)/xacro '$(find jet_description)/urdf/jet.xacro'"/>
@@ -15,7 +15,13 @@
   </node>
   
   <!-- Gmapping Node -->
-  <include file="$(find jet_slam)/launch/gmapping.launch"> </include>
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+    <param name="base_frame" value="Main_Frame"/>
+    <param name="odom_frame" value="odom"/>
+    <param name="map_frame"  value="map"/>
+    <remap from="scan" to="laser/scan"/>
+    <rosparam command="load" file="$(find jet_slam)/config/gmapping_params.yaml" />
+  </node>
   
   <!-- Move Base Node -->
   <include file="$(find jet_navigation)/launch/move_base.launch"> </include>

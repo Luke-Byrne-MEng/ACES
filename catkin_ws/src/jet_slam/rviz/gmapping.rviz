@@ -26,7 +26,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: LaserScan
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -63,66 +63,35 @@ Visualization Manager:
       Use Timestamp: false
       Value: true
     - Alpha: 1
-      Class: rviz/RobotModel
-      Collision Enabled: false
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/LaserScan
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
       Enabled: true
-      Links:
-        All Links Enabled: true
-        Expand Joint Details: false
-        Expand Link Details: false
-        Expand Tree: false
-        IMU_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        Link Tree Style: Links in Alphabetic Order
-        Main_Frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        arrow:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        camera:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        caster_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        caster_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        chassis:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hokuyo:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        left_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-      Name: RobotModel
-      Robot Description: robot_description
-      TF Prefix: robot_1
-      Update Interval: 0
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 0
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: LaserScan
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.029999999329447746
+      Style: Flat Squares
+      Topic: /laser/scan
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
       Value: true
-      Visual Enabled: true
     - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
@@ -136,24 +105,22 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+          Value: true
         Link Tree Style: Links in Alphabetic Order
         Main_Frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        arrow:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         camera:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+          Value: true
         caster_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+          Value: true
         caster_wheel:
           Alpha: 1
           Show Axes: false
@@ -168,6 +135,7 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+          Value: true
         left_wheel:
           Alpha: 1
           Show Axes: false
@@ -178,103 +146,27 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-      Name: RobotModel
-      Robot Description: robot_description
-      TF Prefix: robot_2
-      Update Interval: 0
-      Value: true
-      Visual Enabled: true
-    - Alpha: 1
-      Class: rviz/RobotModel
-      Collision Enabled: false
-      Enabled: true
-      Links:
-        All Links Enabled: true
-        Expand Joint Details: false
-        Expand Link Details: false
-        Expand Tree: false
-        IMU_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        Link Tree Style: Links in Alphabetic Order
-        Main_Frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        arrow:
+        sonar1_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        camera:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        caster_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        caster_wheel:
+        sonar2_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        chassis:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hokuyo:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        left_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_wheel:
+        sonar3_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
       Name: RobotModel
       Robot Description: robot_description
-      TF Prefix: robot_3
+      TF Prefix: ""
       Update Interval: 0
       Value: true
       Visual Enabled: true
-    - Alpha: 0.699999988079071
-      Class: rviz/Map
-      Color Scheme: map
-      Draw Behind: false
-      Enabled: true
-      Name: Map
-      Topic: /robot_1/map
-      Unreliable: false
-      Use Timestamp: false
-      Value: true
-    - Alpha: 0.699999988079071
-      Class: rviz/Map
-      Color Scheme: map
-      Draw Behind: false
-      Enabled: true
-      Name: Map
-      Topic: /robot_2/map
-      Unreliable: false
-      Use Timestamp: false
-      Value: true
-    - Alpha: 0.699999988079071
-      Class: rviz/Map
-      Color Scheme: map
-      Draw Behind: false
-      Enabled: true
-      Name: Map
-      Topic: /robot_3/map
-      Unreliable: false
-      Use Timestamp: false
-      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -303,25 +195,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 41.77691650390625
+      Distance: 24.759632110595703
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 6.7586164474487305
-        Y: 2.0058484077453613
-        Z: -6.19741153717041
+        X: -0.06326103955507278
+        Y: -0.4152297377586365
+        Z: -0.00041459512431174517
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.785398006439209
+      Pitch: 1.5697963237762451
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.785398006439209
+      Yaw: 4.708584308624268
     Saved: ~
 Window Geometry:
   Displays:
