@@ -12,6 +12,3 @@ oscillation_distance: 0.5
 recovery_behavior_enabled: true
 clearing_rotation_allowed: true
 
-
-#track_unknown_space: true #REMOVE IF GETTING ERRORS
-

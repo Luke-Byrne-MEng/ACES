@@ -42,7 +42,7 @@
   </node>
   
   <!-- Rviz -->
-  <node pkg="rviz" type="rviz" name="rviz" required="true"/>
+  <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find jet_navigation)/rviz/exploration.rviz" />
   
 </launch>
   

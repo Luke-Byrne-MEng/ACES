@@ -10,7 +10,7 @@
    <joint name="Main_Frame_Joint" type="fixed">
      <parent link="Main_Frame"/>
      <child link="chassis"/>
-     <origin xyz="0 0 0" rpy="0 0 0"/>
+     <origin xyz="0 0 0" rpy="0 0 1.570796327"/>
    </joint>
 
   <!--.........................Chassis...............................-->
@@ -162,7 +162,7 @@
   </joint>
 
 
-  <!--................................Camera..................................-->
+  <!--................................Camera..................................
   <link name="camera">
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -176,7 +176,7 @@
     <origin xyz="0 -0.145 0.025" rpy="0 0 -1.570796327"/>
     <parent link="chassis"/>
     <child link="camera"/>
-  </joint>
+  </joint>-->
 
 
   <!--............................Liadar................................-->
@@ -196,7 +196,7 @@
   </joint>
 
 
-  <!--............................IMU................................--> 
+  <!--............................IMU................................
   <link name="IMU_link">
    
     <inertial>
@@ -211,7 +211,7 @@
     <origin xyz="0 0 0.0525" rpy="0 0 0"/>
     <parent link="chassis"/>
     <child link="IMU_link"/>
-  </joint>
-
+  </joint>-->
+ 
 
 </robot>
