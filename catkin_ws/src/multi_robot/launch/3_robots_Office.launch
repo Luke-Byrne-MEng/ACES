@@ -31,7 +31,7 @@
       <arg name="init_pose" value="-x -9 -y 8 -z 0 -R 0 -P 0 -Y 0" />
       <arg name="robot_name"  value="robot_1" />
     </include>
-    <!-- Gmapping Node 
+    <!-- Gmapping Node -->
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
       <param name="base_frame" value="/robot_1/Main_Frame"/>
       <param name="odom_frame" value="/robot_1/odom"/>
@@ -39,15 +39,15 @@
       <remap from="scan" to="/robot_1/laser/scan"/>
       <remap from="map" to="/robot_1/map" />
       <rosparam command="load" file="$(find jet_slam)/config/gmapping_params.yaml" />
-    </node>-->
-    <!-- MoveBase Node 
+    </node>
+    <!-- MoveBase Node -->
     <include file="$(find multi_robot)/config/move_base_setup.launch">
       <arg name="namespace" value="robot_1"/>
-    </include>-->
-    <!-- Explore-Lite Node  
+    </include>
+    <!-- Explore-Lite Node -->
     <include file="$(find multi_robot)/config/exploration_setup.launch">
       <arg name="namespace" value="robot_1"/>
-    </include>   -->
+    </include>   
   </group>
 
   <!-- ...........................BEGIN ROBOT 2....................................-->
@@ -57,7 +57,7 @@
       <arg name="init_pose" value="-x -8 -y -9 -z 0 -R 0 -P 0 -Y 1.570796327" />
       <arg name="robot_name"  value="robot_2" />
     </include>
-    <!-- Gmapping Node 
+    <!-- Gmapping Node -->
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
       <param name="base_frame" value="/robot_2/Main_Frame"/>
       <param name="odom_frame" value="/robot_2/odom"/>
@@ -65,15 +65,15 @@
       <remap from="scan" to="/robot_2/laser/scan"/>
       <remap from="map" to="/robot_2/map" />
       <rosparam command="load" file="$(find jet_slam)/config/gmapping_params.yaml" />
-    </node>-->
-    <!-- MoveBase Node 
+    </node>
+    <!-- MoveBase Node -->
     <include file="$(find multi_robot)/config/move_base_setup.launch">
       <arg name="namespace" value="robot_2"/>
-    </include>-->
-    <!-- Explore-Lite Node 
+    </include>
+    <!-- Explore-Lite Node -->
     <include file="$(find multi_robot)/config/exploration_setup.launch">
       <arg name="namespace" value="robot_2"/>
-    </include>-->
+    </include>
   </group>
 
 
@@ -84,7 +84,7 @@
       <arg name="init_pose" value="-x 8 -y -8 -z 0 -R 0 -P 0 -Y -3.141592654" />
       <arg name="robot_name"  value="robot_3" />
     </include>
-    <!-- Gmapping Node 
+    <!-- Gmapping Node -->
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
       <param name="base_frame" value="/robot_3/Main_Frame"/>
       <param name="odom_frame" value="/robot_3/odom"/>
@@ -92,15 +92,15 @@
       <remap from="scan" to="/robot_3/laser/scan"/>
       <remap from="map" to="/robot_3/map" />
       <rosparam command="load" file="$(find jet_slam)/config/gmapping_params.yaml" />
-    </node>-->
-    <!-- MoveBase Node 
+    </node>
+    <!-- MoveBase Node -->
     <include file="$(find multi_robot)/config/move_base_setup.launch">
       <arg name="namespace" value="robot_3"/>
-    </include>-->
-    <!-- Explore-Lite Node 
+    </include>
+    <!-- Explore-Lite Node -->
     <include file="$(find multi_robot)/config/exploration_setup.launch">
       <arg name="namespace" value="robot_3"/>
-    </include>-->
+    </include>
   </group>
   
 </launch>
