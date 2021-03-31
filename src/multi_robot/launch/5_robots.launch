@@ -3,7 +3,7 @@
   <!-- No namespace here as we will share this description. 
        Access with slash at the beginning -->
   <param name="robot_description"
-    command="$(find xacro)/xacro $(find jet_description)/urdf/jet.xacro" />
+    command="$(find xacro)/xacro $(find jet_description)/urdf/multi_robot.xacro" />
 
   <!-- BEGIN ROBOT 1-->
   <group ns="robot1">

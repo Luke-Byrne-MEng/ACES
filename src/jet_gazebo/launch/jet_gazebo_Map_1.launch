@@ -32,7 +32,6 @@
   <!-- Spawn a robot into Gazebo -->
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model jet -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)" />
 
-  <include file="$(find jet_control)/launch/jet_control.launch"/>
 
 
 </launch>

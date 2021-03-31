@@ -6,7 +6,9 @@ cd ACES
 
 git status
 
-git add [WHATEVER_WAS_IN_THE_GIT_STATUS]
+git add [WHATEVER_WAS_IN_THE_GIT_STATUS or . TO_ADD_EVERYTHING]
+or, to add everything:
+git add .
 
 git commit -m "[DESCRIBE_YOUR_CHANGES]"
 

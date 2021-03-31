@@ -1,11 +1,11 @@
 # ACES
 2020/2021 GCU Masters project for Luke Byrne, Ryan Walker, Mateo Alvares, Jamie Hardie, and Kamil Shabkhez.
 
-The ACES (Automated Colaborative Exploration Swarm) system is a comprehensive multi-robot mapping system that uses cutting edge CSLAM and swarm navigation methods. This system is modeled and simulated in the Gazebo environment, and uses the ROS middleware.
+The ACES (Automated Colaborative Exploration Swarm) system is a comprehensive multi-robot mapping system that uses modern edge CSLAM and swarm navigation methods. This system is modeled and simulated in the Gazebo environment, and uses the ROS middleware.
 
 **This project is still in development, and therefore further documentation will be coming.**
 
-This project has been developed and optimised for **Ubuntu 20.04** with **ROS Noetic**. However it should be simple to edit the install script to use other distros and ROS versions.
+This project has been developed and optimised for **Ubuntu 18.04** with **ROS Melodic**. However it should be simple to edit the install script to use other distros and ROS versions.
 
 ## Table of Contents
 
@@ -64,10 +64,13 @@ git clone https://github.com/Luke-Byrne-uni/ACES.git
 Then run the install script, and compile with catkin_make:
 ```
 cd ACES
-bash ACES_install.sh
+bash ACES_install_melodic.sh
 caktin_make
 ```
-
+Please remember to source your setup.bash after install:
+```
+source ./devel/setup.bash
+```
 
 # 4. Configuration
 Configuration of the ACES system, and of the Gazebo simulation is done via parameters in the ACES launch files. Although the system should work as-is, it is possible to edit these parameters to change system behaviour. A complete list, and discription, of system parameters is available in the [ACES_config.md](https://github.com/Luke-Byrne-uni/ACES/blob/main/ACES_config.md) file.
@@ -84,14 +87,19 @@ Configuration of the ACES system, and of the Gazebo simulation is done via param
 
 
 # 6. Running
-After sourcing your setup.bash, by cd-ing into your catkin_ws and doing:
+The ACES simulations may be launched by using any of the following commands:
 ```
-source devel/setup.bash
+roslaunch multi_robot Office.launch
 ```
-you can launch one of the simulations using:
+By default the simulations spawn 1 robot, moving at 0.5m/s
+However, you may increase the number of robots, and speed of robots by appending:
 ```
- - roslaunch multi_robot Office_with_3_robots.launch
- - roslaunch multi_robot SLAM.launch
+speed:=
+robots:=
+```
+to the end of the command. For example:
+```
+roslaunch multi_robot Office.launch speed:=0.1 robots:=3
 ```
 
 
