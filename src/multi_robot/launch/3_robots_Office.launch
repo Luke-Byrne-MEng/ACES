@@ -23,7 +23,8 @@
   <node pkg="tf" type="static_transform_publisher" name="world_to_robot_1_tf_broadcaster"  args="0 0 0 0 0 0 /map /robot_1/map 100"/>
   <node pkg="tf" type="static_transform_publisher" name="world_to_robot_2_tf_broadcaster"  args="0 0 0 0 0 0 /map /robot_2/map 100"/>
   <node pkg="tf" type="static_transform_publisher" name="world_to_robot_3_tf_broadcaster"  args="0 0 0 0 0 0 /map /robot_3/map 100"/>			
-
+  <node pkg="tf" type="static_transform_publisher" name="world_to_robot_4_tf_broadcaster"  args="0 0 0 0 0 0 /map /robot_4/map 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="world_to_robot_5_tf_broadcaster"  args="0 0 0 0 0 0 /map /robot_5/map 100"/>
   <!-- ...........................BEGIN ROBOT 1....................................-->
   <group ns="robot_1">
     <param name="tf_prefix" value="robot_1" />
@@ -100,6 +101,60 @@
     <!-- Explore-Lite Node -->
     <include file="$(find multi_robot)/config/exploration_setup.launch">
       <arg name="namespace" value="robot_3"/>
+    </include>
+  </group>
+
+
+  <!-- ...........................BEGIN ROBOT 4....................................-->
+  <group ns="robot_4">
+    <param name="tf_prefix" value="robot_4" />
+    <include file="$(find multi_robot)/launch/jet_setup.launch" >
+      <arg name="init_pose" value="-x 5 -y -6 -z 0 -R 0 -P 0 -Y -0" />
+      <arg name="robot_name"  value="robot_4" />
+    </include>
+    <!-- Gmapping Node -->
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+      <param name="base_frame" value="/robot_4/Main_Frame"/>
+      <param name="odom_frame" value="/robot_4/odom"/>
+      <param name="map_frame"  value="/robot_4/map"/>
+      <remap from="scan" to="/robot_4/laser/scan"/>
+      <remap from="map" to="/robot_4/map" />
+      <rosparam command="load" file="$(find jet_slam)/config/gmapping_params.yaml" />
+    </node>
+    <!-- MoveBase Node -->
+    <include file="$(find multi_robot)/config/move_base_setup.launch">
+      <arg name="namespace" value="robot_4"/>
+    </include>
+    <!-- Explore-Lite Node -->
+    <include file="$(find multi_robot)/config/exploration_setup.launch">
+      <arg name="namespace" value="robot_4"/>
+    </include>
+  </group>
+
+
+  <!-- ...........................BEGIN ROBOT 5....................................-->
+  <group ns="robot_5">
+    <param name="tf_prefix" value="robot_5" />
+    <include file="$(find multi_robot)/launch/jet_setup.launch" >
+      <arg name="init_pose" value="-x 3 -y -8 -z 0 -R 0 -P 0 -Y -0" />
+      <arg name="robot_name"  value="robot_5" />
+    </include>
+    <!-- Gmapping Node -->
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+      <param name="base_frame" value="/robot_5/Main_Frame"/>
+      <param name="odom_frame" value="/robot_5/odom"/>
+      <param name="map_frame"  value="/robot_5/map"/>
+      <remap from="scan" to="/robot_5/laser/scan"/>
+      <remap from="map" to="/robot_5/map" />
+      <rosparam command="load" file="$(find jet_slam)/config/gmapping_params.yaml" />
+    </node>
+    <!-- MoveBase Node -->
+    <include file="$(find multi_robot)/config/move_base_setup.launch">
+      <arg name="namespace" value="robot_5"/>
+    </include>
+    <!-- Explore-Lite Node -->
+    <include file="$(find multi_robot)/config/exploration_setup.launch">
+      <arg name="namespace" value="robot_5"/>
     </include>
   </group>
   

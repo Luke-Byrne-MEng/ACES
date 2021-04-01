@@ -4,10 +4,10 @@
 
   <!-- Start World -->
   <node name="gazebo" pkg="gazebo_ros" type="gazebo" 
-   args="$(find jet_gazebo)/worlds/Textured.world" respawn="false" output="screen" />
+   args="$(find jet_gazebo)/worlds/Office.world" respawn="false" output="screen" />
 
   <!-- Include Robots -->
-  <include file="$(find multi_robot)/launch/3_robots_Textured.launch"/>
+  <include file="$(find multi_robot)/launch/3_robots_Office.launch"/>
 
   <!-- Show in Rviz   -->
   <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find multi_robot)/rviz/multi-exploration.rviz"/>
@@ -16,5 +16,7 @@
   <node pkg="tf" type="static_transform_publisher" name="robot_1_map_tf_broadcaster" args="0 0 0 0 0 0 /map /robot_1/odom 1000" output="screen"/>
   <node pkg="tf" type="static_transform_publisher" name="robot_2_map_tf_broadcaster" args="0 0 0 0 0 0 /map /robot_2/odom 1000" output="screen"/>
   <node pkg="tf" type="static_transform_publisher" name="robot_3_map_tf_broadcaster" args="0 0 0 0 0 0 /map /robot_3/odom 1000" output="screen"/>
+  <node pkg="tf" type="static_transform_publisher" name="robot_4_map_tf_broadcaster" args="0 0 0 0 0 0 /map /robot_4/odom 1000" output="screen"/>
+  <node pkg="tf" type="static_transform_publisher" name="robot_5_map_tf_broadcaster" args="0 0 0 0 0 0 /map /robot_5/odom 1000" output="screen"/>
 
 </launch>
