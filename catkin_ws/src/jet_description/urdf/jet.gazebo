@@ -7,7 +7,7 @@
     <kp>500000.0</kp>
     <kd>10.0</kd>
     <minDepth>0.001</minDepth>
-    <maxVel>0.1</maxVel>
+    <maxVel>1.5</maxVel>
     <fdir1>1 0 0</fdir1>
   </gazebo>
 
@@ -17,7 +17,7 @@
     <kp>500000.0</kp>
     <kd>10.0</kd>
     <minDepth>0.001</minDepth>
-    <maxVel>0.1</maxVel>
+    <maxVel>1.5</maxVel>
     <fdir1>1 0 0</fdir1>
   </gazebo>
 
@@ -27,7 +27,7 @@
     <kp>1000000.0</kp>
     <kd>100.0</kd>
     <minDepth>0.001</minDepth>
-    <maxVel>1.0</maxVel>
+    <maxVel>1.5</maxVel>
   </gazebo>
 
 
@@ -105,11 +105,11 @@
     <sensor type="ray" name="hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
       <visualize>false</visualize>
-      <update_rate>50</update_rate>
+      <update_rate>40</update_rate>
       <ray>       
         <scan>          
           <horizontal>
-            <samples>1500</samples>
+            <samples>720</samples>
             <resolution>1</resolution>
             <min_angle>-1.3089969939</min_angle>
             <max_angle>1.3089969939</max_angle>

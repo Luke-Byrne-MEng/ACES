@@ -136,6 +136,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/kamil-shabkhez/ACES/catkin_ws/build/jet_navigation/cmake_install.cmake")
   include("/home/kamil-shabkhez/ACES/catkin_ws/build/jet_slam/cmake_install.cmake")
   include("/home/kamil-shabkhez/ACES/catkin_ws/build/multi_robot/cmake_install.cmake")
+  include("/home/kamil-shabkhez/ACES/catkin_ws/build/m-explore/map_merge/cmake_install.cmake")
+  include("/home/kamil-shabkhez/ACES/catkin_ws/build/m-explore/explore/cmake_install.cmake")
   include("/home/kamil-shabkhez/ACES/catkin_ws/build/jet_control/cmake_install.cmake")
 
 endif()

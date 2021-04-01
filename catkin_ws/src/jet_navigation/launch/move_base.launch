@@ -5,8 +5,8 @@
     <rosparam file="$(find jet_navigation)/config/costmap_common.yaml" command="load" ns="global_costmap" />
     <rosparam file="$(find jet_navigation)/config/costmap_common.yaml" command="load" ns="local_costmap" />
     
-    <rosparam file="$(find jet_navigation)/config/map_nav/local_costmap.yaml" command="load" />
-    <rosparam file="$(find jet_navigation)/config/map_nav/global_costmap.yaml" command="load" />
+    <rosparam file="$(find jet_navigation)/config/local_costmap.yaml" command="load" />
+    <rosparam file="$(find jet_navigation)/config/global_costmap.yaml" command="load" />
     
     <rosparam file="$(find jet_navigation)/config/move_base.yaml" command="load" />
     
@@ -17,8 +17,7 @@
     <!-- Global Planner -->
     <param name="base_global_planner" type="string" value="navfn/NavfnROS" />    
     <remap from="odom" to="odometry/filtered" />
-    
-    
+        
   </node>
 </launch>
 
