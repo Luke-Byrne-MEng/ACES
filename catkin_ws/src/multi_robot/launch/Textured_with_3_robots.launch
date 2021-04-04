@@ -10,7 +10,7 @@
   <include file="$(find multi_robot)/launch/3_robots_Textured.launch"/>
 
   <!-- Show in Rviz   -->
-  <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find multi_robot)/rviz/multi-exploration.rviz"/>
+  <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find multi_robot)/rviz/3_robots_exploration.rviz"/>
 
   <!-- Map Broadcaster -->
   <node pkg="tf" type="static_transform_publisher" name="robot_1_map_tf_broadcaster" args="0 0 0 0 0 0 /map /robot_1/odom 1000" output="screen"/>

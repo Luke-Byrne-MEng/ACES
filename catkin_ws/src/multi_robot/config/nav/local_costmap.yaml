@@ -6,7 +6,6 @@ local_costmap:
    width: 7.5
    height: 7.5
    resolution: 0.05
-
    rolling_window: true
 
    plugins:

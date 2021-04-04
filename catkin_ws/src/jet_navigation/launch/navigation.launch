@@ -4,6 +4,10 @@
   <!-- Arguments -->
   <arg name="map_file" default="$(find jet_navigation)/maps/test_map.yaml"/>
   <arg name="open_rviz" default="true"/>
+  <arg name="World" default="jet_gazebo_Test.launch"/>
+
+  <!-- Gazebo World -->
+  <include file="$(find jet_gazebo)/launch/$(arg World)"> </include>
 
   <!-- Robot -->
   <param name="robot_description" command="$(find xacro)/xacro '$(find jet_description)/urdf/jet.xacro'"/>
@@ -27,6 +31,7 @@
 
   <!-- Rviz -->
   <group if="$(arg open_rviz)"> 
-    <node pkg="rviz" type="rviz" name="rviz" required="true"/>
+    <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find jet_navigation)/rviz/navigation.rviz"/>
   </group>
 </launch>
+

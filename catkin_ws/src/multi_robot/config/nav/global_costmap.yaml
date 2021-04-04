@@ -6,9 +6,6 @@ global_costmap:
    width: 40.0
    height: 40.0
    resolution: 0.05
-   origin_x: -20.0
-   origin_y: -20.0
-
    rolling_window: false
 
    plugins:

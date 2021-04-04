@@ -3,7 +3,7 @@
 <launch>
 
   <!-- Gazebo World -->
-  <include file="$(find jet_gazebo)/launch/Textured.launch"> </include>
+  <include file="$(find jet_gazebo)/launch/jet_gazebo_Test.launch"> </include>
   
   <!-- Robot -->
   <param name="robot_description" command="$(find xacro)/xacro '$(find jet_description)/urdf/jet.xacro'"/>
