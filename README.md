@@ -102,6 +102,7 @@ to the end of the command. For example:
 roslaunch multi_robot Office.launch speed:=0.1 robots:=3
 ```
 
+# 7. Map Analysis Toolkit
 
-
+Included in this repo are programs for converting 3D Gazebo environments to 2D representation and a Google Colab script [mapCompare_ACES.ipynb] that uses OpenCV to threshold and assess completion of merged map output from the ACES system.
 
