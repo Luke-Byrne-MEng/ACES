@@ -1,0 +1,30 @@
+material wallMat/Diffuse
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture Stone_Wall_Texture.jpg
+        scale 0.3 0.9
+      }
+    }
+  }
+}
+material outside_wallMat/Diffuse
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture Stone_Wall_Texture.jpg
+        scale 0.1 0.9
+      }
+    }
+  }
+}

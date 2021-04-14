@@ -2,7 +2,7 @@
 <launch>
   <param name="/use_sim_time" value="true" />
 
-  <!-- Start World -->
+  <!-- Start World with GUI -->
   <node name="gazebo" pkg="gazebo_ros" type="gazebo" 
    args="$(find jet_gazebo)/worlds/Textured.world" respawn="false" output="screen" />
 

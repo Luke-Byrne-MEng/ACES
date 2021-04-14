@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="Table">
+    <static>true</static>
+    <link name="link">
+      <pose>0 0 0.04 0 0 0</pose>
+      <inertial>
+        <mass>13</mass>
+        <inertia>
+          <ixx>0.9438</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.9438</iyy>
+          <iyz>0</iyz>
+          <izz>0.9438</izz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <geometry>
+          <mesh>
+	    <uri>model://Table/meshes/Table.dae</uri>
+	  </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+	    <uri>model://Table/meshes/Table.dae</uri>
+	  </mesh>
+        </geometry>
+      </visual>
+
+    </link>
+  </model>
+</sdf>
