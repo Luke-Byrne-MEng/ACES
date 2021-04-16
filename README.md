@@ -13,8 +13,8 @@ This project has been developed and optimised for **Ubuntu 18.04** with **ROS Me
 - [Dependencies](#2-dependencies)
 - [Installation](#3-installation)
 - [Configuration](#4-configuration)
-- [Ros Topics & Services](#5-ros-topics--services)
-- [Running](#6-running)
+- [Running](#5-running)
+- [Map Analysis](#6-Map-Analysis-Toolkit)
 
 
 # 1. System Structure
@@ -76,17 +76,7 @@ source ./devel/setup.bash
 Configuration of the ACES system, and of the Gazebo simulation is done via parameters in the ACES launch files. Although the system should work as-is, it is possible to edit these parameters to change system behaviour. A complete list, and discription, of system parameters is available in the [ACES_config.md](https://github.com/Luke-Byrne-uni/ACES/blob/main/ACES_config.md) file.
 
 
-# 5. Ros Topics & Services
-
-## 5.1 Topics
-
-
-## 5.2 Services
-
-- **/orb_slam2_mono/save_map** Saves a robot's local SLAM map. This service expects the name of the file the map should be saved at as input.
-
-
-# 6. Running
+# 5. Running
 The ACES simulations may be launched by using any of the following commands:
 ```
 roslaunch multi_robot Office.launch
@@ -102,7 +92,7 @@ to the end of the command. For example:
 roslaunch multi_robot Office.launch speed:=0.1 robots:=3
 ```
 
-# 7. Map Analysis Toolkit
+# 6. Map Analysis Toolkit
 
 Included in this repo are programs for converting 3D Gazebo environments to 2D representation and a Google Colab script [mapCompare_ACES.ipynb] that uses OpenCV to threshold and assess completion of merged map output from the ACES system.
 
