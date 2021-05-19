@@ -1,7 +1,7 @@
 # ACES
 2020/2021 GCU Masters project for Luke Byrne, Ryan Walker, Mateo Alvares, Jamie Hardie, and Kamil Shabkhez. The full thesis is available [here](https://github.com/Luke-Byrne-uni/ACES/blob/main/ACES_Thesis.pdf).
 
-The ACES (Automated Colaborative Exploration Swarm) system is a comprehensive multi-robot mapping system that uses modern edge CSLAM and swarm navigation methods. This system is modeled and simulated in the Gazebo environment, and uses the ROS middleware.
+The ACES (Automated Colaborative Exploration Swarm) system is a comprehensive multi-robot mapping system that uses modern CSLAM and swarm navigation methods. This system is modeled and simulated in the Gazebo environment, and uses the ROS middleware.
 
 **This project is still in development, and therefore further documentation will be coming.**
 
